@@ -18,11 +18,23 @@ router.post(
     check('email')
       .normalizeEmail()
       .isEmail(),
-    check('password').isLength({ min: 6 })
+    check('password').isLength({ min: 6 }),
+    check('companyAddress')
+      .not()
+      .isEmpty(),
+      check('telNo')
+      .not()
+      .isEmpty(),  
+      check('employer')
+      .not()
+      .isEmpty(),
   ],
+
   usersController.signup
 );
 
 router.post('/login', usersController.login);
+
+router.post('/apply/:jobId', usersController.applyJob);
 
 module.exports = router;

@@ -20,26 +20,26 @@ const PlaceItem = props => {
 
   const closeMapHandler = () => setShowMap(false);
 
-  const showDeleteWarningHandler = () => {
+  const showApplyWarningHandler = () => {
     setShowConfirmModal(true);
   };
 
-  const cancelDeleteHandler = () => {
+  const cancelApplyHandler = () => {
     setShowConfirmModal(false);
   };
 
-  const confirmDeleteHandler = async () => {
+  const confirmApplyHandler = async () => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/jobs/${props.id}`,
-        'DELETE',
+        `http://localhost:5000/api/jobs/apply/${props.id}`,
+        'POST',
         null,
         {
           Authorization: 'Bearer ' + auth.token
         }
       );
-      props.onDelete(props.id);
+      // props.onDelete(props.id);
     } catch (err) {}
   };
 
@@ -60,16 +60,16 @@ const PlaceItem = props => {
       </Modal>
       <Modal
         show={showConfirmModal}
-        onCancel={cancelDeleteHandler}
+        onCancel={cancelApplyHandler}
         header="Are you sure?"
         footerClass="place-item__modal-actions"
         footer={
           <React.Fragment>
-            <Button inverse onClick={cancelDeleteHandler}>
+            <Button inverse onClick={cancelApplyHandler}>
               CANCEL
             </Button>
-            <Button danger onClick={confirmDeleteHandler}>
-              DELETE
+            <Button danger onClick={confirmApplyHandler}>
+              APPLY
             </Button>
           </React.Fragment>
         }
@@ -98,13 +98,7 @@ const PlaceItem = props => {
               VIEW ON MAP
             </Button> */}
             {auth.userId === props.creatorId && (
-              <Button to={`/job/${props.id}`}>EDIT</Button>
-            )}
-
-            {auth.userId === props.creatorId && (
-              <Button danger onClick={showDeleteWarningHandler}>
-                DELETE
-              </Button>
+              <Button onClick={showApplyWarningHandler}>APPLY</Button>
             )}
           </div>
         </Card>

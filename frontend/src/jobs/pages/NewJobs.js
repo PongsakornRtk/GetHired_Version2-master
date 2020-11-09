@@ -93,7 +93,7 @@ const NewJob = () => {
           errorText="Please provide an image."
         />
         <Button type="submit" disabled={!formState.isValid}>
-          Add JOB
+          ADD JOB
         </Button>
       </form>
     </React.Fragment>

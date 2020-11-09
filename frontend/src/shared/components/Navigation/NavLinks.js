@@ -21,7 +21,7 @@ const NavLinks = props => {
       )}
       {auth.isLoggedIn && (
         <li>
-          <NavLink to="/job/new">ADD Job</NavLink>
+          <NavLink to="/job/new">Add Job</NavLink>
         </li>
       )}
       {!auth.isLoggedIn && (

@@ -103,7 +103,7 @@ const UpdatePlace = () => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {!isLoading && loadedJob && (
-        <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
+        <form className="job-form" onSubmit={placeUpdateSubmitHandler}>
           <Input
             id="title"
             element="input"

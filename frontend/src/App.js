@@ -10,13 +10,14 @@ import Users from './user/pages/Users';
 import NewJobs from './jobs/pages/NewJobs';
 import UserJobs from './jobs/pages/UserJobs';
 import UpdateJobs from './jobs/pages/UpdateJobs';
+import Freelance from './jobs/pages/Freelance';
 import Auth from './user/pages/Auth';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
 import { useAuth } from './shared/hooks/auth-hook';
 
 const App = () => {
-  const { token, login, logout, userId } = useAuth();
+  const { token, login, logout, userId, employer } = useAuth();
 
   let routes;
 
@@ -34,6 +35,9 @@ const App = () => {
         </Route>
         <Route path="/job/:jobId">
           <UpdateJobs />
+        </Route>
+        <Route path="/apply" exact>
+          <Freelance />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -61,6 +65,7 @@ const App = () => {
         isLoggedIn: !!token,
         token: token,
         userId: userId,
+        employer: employer,
         login: login,
         logout: logout
       }}

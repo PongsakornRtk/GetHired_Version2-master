@@ -1,9 +1,27 @@
+const fs = require('fs');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const express = require('express');
 const jwt = require('jsonwebtoken');
+const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
+const Job = require('../models/job');
+
+const getUserFromToken = async (req) => {
+  try {
+    const token = req.headers.authorization.split(' ')[1]; // Authorization: 'Bearer TOKEN'
+    if (!token) {
+      return false;
+    }
+    const decodedToken = jwt.verify(token, 'supersecret_dont_share');
+    req.userData = { userId: decodedToken.userId };
+    return req.userData;
+  } catch (err) {
+    return false;
+  }
+}
 
 const getUsers = async (req, res, next) => {
   let users;
@@ -27,7 +45,9 @@ const signup = async (req, res, next) => {
     );
   }
 
-  const { name, email, password } = req.body;
+  console.log(req.body);
+
+  const { name, email, password, companyAddress, telNo, employer } = req.body;
 
   let existingUser;
   try {
@@ -64,6 +84,9 @@ const signup = async (req, res, next) => {
     email,
     image: req.file.path,
     password: hashedPassword,
+    employer,
+    telNo,
+    companyAddress,
     jobs: []
   });
 
@@ -157,10 +180,59 @@ const login = async (req, res, next) => {
   res.json({
     userId: existingUser.id,
     email: existingUser.email,
+    employer: existingUser.employer,
     token: token
   });
 };
 
+const applyJob = async (req, res, next) => {
+  const userId = (await getUserFromToken(req)).userId;
+  console.log(userId);
+  if (!userId) {
+    return next(
+      new HttpError('Unauthorized.', 401)
+    );
+  }
+  if (!req.params.jobId) {
+    return next(
+      new HttpError('Invalidata.', 404)
+    );
+  }
+  const jobId = req.params.jobId;
+  console.log(userId, 'sda');
+  try {
+    console.log(userId, 'sdadasd');
+    job = await Job.findById(jobId);
+    console.log('dsadas')
+    user = await User.findById(userId);
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    
+    console.log('asdsad');
+    console.log('usser', user)
+    job.applier.push(user);
+    console.log('console')
+    console.log('asdsaddaqawedqeq');
+    user.jobs.push(job);
+    console.log('asdsaddaqawedqeq23132131');
+    
+    console.log('sadasd2');
+    await job.save({ session: sess });
+    await user.save({ session: sess });
+    await sess.commitTransaction();
+  } catch (err) {
+    console.log(err);
+    const error = new HttpError(
+      'Something went wrong, could not find job.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ status: 'done' });
+}
+
 exports.getUsers = getUsers;
 exports.signup = signup;
 exports.login = login;
+exports.applyJob = applyJob;
