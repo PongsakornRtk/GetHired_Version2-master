@@ -45,7 +45,8 @@ const Auth = () => {
           formState.inputs.password.value &&
           formState.inputs.telNo.value !== ""
         ) {
-          console.log("asdasd");
+          console.log("checked!");
+          console.log(formState);
           return false;
         } else {
           return true;
@@ -136,9 +137,7 @@ const Auth = () => {
           "companyAddress",
           formState.inputs.companyAddress.value
         );
-
         formData.append("telNo", formState.inputs.telNo.value);
-
         formData.append("employer", isAddressable);
 
         const responseData = await sendRequest(
@@ -259,11 +258,11 @@ const Auth = () => {
           )}
 
           <Button type="submit" disabled={checkValid(formState)}>
-            {isLoginMode ? "LOGIN" : "SIGNUP"}
+            {isLoginMode ? "LOGIN" : "REGISTER"}
           </Button>
         </form>
         <Button inverse onClick={switchModeHandler}>
-          SWITCH TO {isLoginMode ? "SIGNUP" : "LOGIN"}
+          SWITCH TO {isLoginMode ? "REGISTER" : "LOGIN"}
         </Button>
       </Card>
     </React.Fragment>
