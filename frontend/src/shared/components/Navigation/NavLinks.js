@@ -14,12 +14,12 @@ const NavLinks = props => {
           ALL Employer
         </NavLink>
       </li> */}
-      {auth.isLoggedIn && (
+      {auth.isLoggedIn && auth.employer &&(
         <li>
           <NavLink to={`/${auth.userId}/jobs`}>My Job</NavLink>
         </li>
       )}
-      {auth.isLoggedIn && (
+      {auth.isLoggedIn && auth.employer &&(
         <li>
           <NavLink to="/job/new">Add Job</NavLink>
         </li>
