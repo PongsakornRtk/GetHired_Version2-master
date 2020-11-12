@@ -43,8 +43,7 @@ const Auth = () => {
           formState.inputs.name.value &&
           formState.inputs.email.value &&
           formState.inputs.password.value &&
-          formState.inputs.telNo.value &&
-          formState.inputs.companyAddress.value !== ""
+          formState.inputs.telNo.value !== ""
         ) {
           console.log("asdasd");
           return false;
