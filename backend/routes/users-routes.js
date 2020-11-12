@@ -19,9 +19,6 @@ router.post(
       .normalizeEmail()
       .isEmail(),
     check('password').isLength({ min: 6 }),
-    check('companyAddress')
-      .not()
-      .isEmpty(),
       check('telNo')
       .not()
       .isEmpty(),  

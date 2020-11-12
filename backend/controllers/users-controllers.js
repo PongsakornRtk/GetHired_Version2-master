@@ -210,13 +210,17 @@ const applyJob = async (req, res, next) => {
     
     console.log('asdsad');
     console.log('usser', user)
+    
     job.applier.push(user);
+    
     console.log('console')
     console.log('asdsaddaqawedqeq');
     user.jobs.push(job);
+    
     console.log('asdsaddaqawedqeq23132131');
     
     console.log('sadasd2');
+    
     await job.save({ session: sess });
     await user.save({ session: sess });
     await sess.commitTransaction();
