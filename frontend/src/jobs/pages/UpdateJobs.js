@@ -16,7 +16,7 @@ import { AuthContext } from '../../shared/context/auth-context';
 import './JobsForm.css';
 // import job from '../../../../backend/models/job';
 
-const UpdatePlace = () => {
+const UpdateJob = () => {
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [loadedJob, setLoadedJob] = useState();
@@ -38,7 +38,7 @@ const UpdatePlace = () => {
   );
 
   useEffect(() => {
-    const fetchPlace = async () => {
+    const fetchJob = async () => {
       try {
         const responseData = await sendRequest(
           `http://localhost:5000/api/jobs/${jobId}`
@@ -47,7 +47,7 @@ const UpdatePlace = () => {
         setFormData(
           {
             title: {
-              value: responseData.place.title,
+              value: responseData.job.title,
               isValid: true
             },
             description: {
@@ -59,10 +59,10 @@ const UpdatePlace = () => {
         );
       } catch (err) {}
     };
-    fetchPlace();
+    fetchJob();
   }, [sendRequest, jobId, setFormData]);
 
-  const placeUpdateSubmitHandler = async event => {
+  const jobUpdateSubmitHandler = async event => {
     event.preventDefault();
     try {
       await sendRequest(
@@ -93,7 +93,7 @@ const UpdatePlace = () => {
     return (
       <div className="center">
         <Card>
-          <h2>Could not find place!</h2>
+          <h2>Could not find job!</h2>
         </Card>
       </div>
     );
@@ -103,7 +103,7 @@ const UpdatePlace = () => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {!isLoading && loadedJob && (
-        <form className="job-form" onSubmit={placeUpdateSubmitHandler}>
+        <form className="job-form" onSubmit={jobUpdateSubmitHandler}>
           <Input
             id="title"
             element="input"
@@ -126,7 +126,7 @@ const UpdatePlace = () => {
             initialValid={true}
           />
           <Button type="submit" disabled={!formState.isValid}>
-            UPDATE PLACE
+            UPDATE JOB
           </Button>
         </form>
       )}
@@ -134,4 +134,4 @@ const UpdatePlace = () => {
   );
 };
 
-export default UpdatePlace;
+export default UpdateJob;
