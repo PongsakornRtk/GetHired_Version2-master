@@ -26,6 +26,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <Users />
+          <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>
           <UserJobs />
@@ -46,7 +47,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <Users />
+          <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>
           <UserJobs />

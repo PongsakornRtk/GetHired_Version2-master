@@ -7,6 +7,8 @@ const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
+router.get('/', jobsControllers.getJobs);
+
 router.get('/:jid', jobsControllers.getJobById);
 
 router.get('/user/:uid', jobsControllers.getJobsByUserId);

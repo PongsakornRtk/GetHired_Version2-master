@@ -4,11 +4,25 @@ const { validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
-const getCoordsForAddress = require('../util/location');
+// const getCoordsForAddress = require('../util/location');
 const Job = require('../models/job');
 const User = require('../models/user');
 const usersController = require('./users-controllers');
 // const job = require('../models/job');
+
+const getJobs = async (req, res, next) => {
+  let jobs;
+  try {
+    jobs = await Job.find();
+  } catch (err) {
+    const error = new HttpError(
+      'Fetching jobs failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+  res.json({ jobs: jobs.map(job => job.toObject({ getters: true })) });
+};
 
 const getJobById = async (req, res, next) => {
   const jobId = req.params.jid;
@@ -18,7 +32,7 @@ const getJobById = async (req, res, next) => {
     job = await Job.findById(jobId);
   } catch (err) {
     const error = new HttpError(
-      'Something went wrong, could not find a place.',
+      'Something went wrong, could not find a job.',
       500
     );
     return next(error);
@@ -74,7 +88,7 @@ const createJobs = async (req, res, next) => {
 
   const { title, description, address } = req.body;
 
-  let coordinates;
+  // let coordinates;
   try {
     
     // coordinates = await getCoordsForAddress(address);
@@ -96,7 +110,7 @@ const createJobs = async (req, res, next) => {
     user = await User.findById(req.userData.userId);
   } catch (err) {
     const error = new HttpError(
-      'Creating place failed, please try again.',
+      'Creating job failed, please try again.',
       500
     );
     return next(error);
@@ -220,7 +234,7 @@ const deleteJob = async (req, res, next) => {
 
   res.status(200).json({ message: 'Deleted job.' });
 };
-
+exports.getJobs = getJobs;
 exports.getJobById = getJobById;
 exports.getJobsByUserId = getJobsByUserId;
 exports.createdJob = createJobs;
