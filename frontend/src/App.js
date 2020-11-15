@@ -11,6 +11,7 @@ import NewJobs from './jobs/pages/NewJobs';
 import UserJobs from './jobs/pages/UserJobs';
 import UpdateJobs from './jobs/pages/UpdateJobs';
 import Freelance from './jobs/pages/Freelance';
+import FreelancerDashboard from './shared/components/Dashboard/FreelancerDashboard';
 import Auth from './user/pages/Auth';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
 import { AuthContext } from './shared/context/auth-context';
@@ -25,6 +26,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
+          <FreelancerDashboard />
           <Users />
           <Freelance />
         </Route>
@@ -47,6 +49,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
+          <FreelancerDashboard />
           <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>

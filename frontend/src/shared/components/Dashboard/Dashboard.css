@@ -1,0 +1,184 @@
+.jobtype {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  height: 100%;
+  margin: 3vw 0vw 5vw 0vw;
+}
+
+#frontendbutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/fn.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#frontendbutton:hover {
+  color: #253039;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/fnh.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#backendbutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/bn.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#backendbutton:hover {
+  color: #253039;
+  width: 16.6%;
+  padding: 2vw;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(255, 184, 0, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/bnh.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#networkbutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/nw.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#networkbutton:hover {
+  color: #253039;
+  width: 16.6%;
+  padding: 2vw;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(255, 184, 0, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/nwh.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#uibutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/ui.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#uibutton:hover {
+  color: #253039;
+  width: 16.6%;
+  padding: 2vw;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(255, 184, 0, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/uih.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#otherbutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/ot.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#otherbutton:hover {
+  color: #253039;
+  width: 16.6%;
+  padding: 2vw;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(255, 184, 0, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/oth.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#dbbutton {
+  color: #ffffff;
+  height: 100%;
+  padding: 2vw;
+  width: 100%;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(37, 48, 57, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/db.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#dbbutton:hover {
+  color: #253039;
+  width: 16.6%;
+  padding: 2vw;
+  margin: 1vw;
+  border-radius: 1em;
+  background: rgba(255, 184, 0, 0.8);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../../pictures/Dashboard/icon/dbh.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
