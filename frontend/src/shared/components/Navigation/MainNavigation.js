@@ -6,7 +6,7 @@ import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
 import Backdrop from '../UIElements/Backdrop';
 import './MainNavigation.css';
-import ghLogo from "../../../pictures/GH_demo_logo.png"
+import ghLogo from "../../../pictures/Logo/GH_demo_logo.png"
 
 const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
