@@ -20,6 +20,7 @@ export const useAuth = () => {
       JSON.stringify({
         userId: uid,
         token: token,
+        employer: employer,
         expiration: tokenExpirationDate.toISOString()
       })
     );

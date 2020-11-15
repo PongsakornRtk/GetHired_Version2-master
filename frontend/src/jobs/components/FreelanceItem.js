@@ -30,7 +30,7 @@ const FreelanceItem = props => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/jobs/apply/${props.id}`,
+        `http://localhost:5000/api/users/apply/${props.id}`,
         'POST',
         null,
         {

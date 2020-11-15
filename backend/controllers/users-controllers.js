@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
 const Job = require('../models/job');
+const { request } = require('http');
 
 const getUserFromToken = async (req) => {
   try {
@@ -186,6 +187,7 @@ const login = async (req, res, next) => {
 };
 
 const applyJob = async (req, res, next) => {
+  console.log(req.params.jobId)
   const userId = (await getUserFromToken(req)).userId;
   console.log(userId);
   if (!userId) {

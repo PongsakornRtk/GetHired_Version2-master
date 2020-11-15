@@ -192,7 +192,7 @@ const Auth = () => {
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
-            <Button inverse onClick={switchAddressHandler}>
+            <Button type="button" inverse onClick={switchAddressHandler}>
               ARE YOU {isAddressable ? "A FREELANCER" : "AN EMPLOYER"}
             </Button>
           )}
