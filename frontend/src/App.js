@@ -1,21 +1,22 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Switch
-} from 'react-router-dom';
+  Switch,
+} from "react-router-dom";
 
 import Users from './user/pages/Users';
-import NewJobs from './jobs/pages/NewJobs';
-import UserJobs from './jobs/pages/UserJobs';
-import UpdateJobs from './jobs/pages/UpdateJobs';
-import Freelance from './jobs/pages/Freelance';
-import FreelancerDashboard from './shared/components/Dashboard/FreelancerDashboard';
-import Auth from './user/pages/Auth';
-import MainNavigation from './shared/components/Navigation/MainNavigation';
-import { AuthContext } from './shared/context/auth-context';
-import { useAuth } from './shared/hooks/auth-hook';
+import NewJobs from "./jobs/pages/NewJobs";
+import UserJobs from "./jobs/pages/UserJobs";
+import UpdateJobs from "./jobs/pages/UpdateJobs";
+import Freelance from "./jobs/pages/Freelance";
+import FreelancerDashboard from "./shared/components/Dashboard/FreelancerDashboard";
+import Application from "./application/pages/Application";
+import Auth from "./user/pages/Auth";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import { AuthContext } from "./shared/context/auth-context";
+import { useAuth } from "./shared/hooks/auth-hook";
 
 const App = () => {
   const { token, login, logout, userId, employer } = useAuth();
@@ -41,6 +42,9 @@ const App = () => {
         </Route>
         <Route path="/apply" exact>
           <Freelance />
+        </Route>
+        <Route path="/application/:jobId" exact>
+          <Application />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -71,7 +75,7 @@ const App = () => {
         userId: userId,
         employer: employer,
         login: login,
-        logout: logout
+        logout: logout,
       }}
     >
       <Router>

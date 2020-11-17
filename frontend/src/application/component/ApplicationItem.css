@@ -1,0 +1,60 @@
+.app-item {
+  margin: 1rem 0;
+}
+
+.app-item__content {
+  padding: 0;
+}
+
+.app-item__info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.app-item__image {
+  width: 100%;
+  height: 12.5rem;
+  margin-right: 1.5rem;
+}
+
+.app-item__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-item__info h2,
+.app-item__info h3,
+.app-item__info p {
+  margin: 0 0 0.5rem 0;
+}
+
+.app-item__actions {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+}
+
+.app-item__modal-content {
+  padding: 0;
+}
+
+.app-item__modal-actions {
+  text-align: right;
+}
+
+.app-item__actions button,
+.app-item__actions a {
+  margin: 0.5rem;
+}
+
+.map-container {
+  height: 15rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .app-item__image {
+    height: 20rem;
+  } 
+}

@@ -53,7 +53,6 @@ const getJobsByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
   // let places;
-  let userWithJobs;
   try {
     jobs = await Job.find({ creator: userId });
   } catch (err) {
@@ -76,6 +75,7 @@ const getJobsByUserId = async (req, res, next) => {
       jobs.toObject({ getters: true })
     )
   });
+  console.log(jobs)
 };
 
 const createJobs = async (req, res, next) => {

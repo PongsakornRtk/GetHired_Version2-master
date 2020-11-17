@@ -238,7 +238,44 @@ const applyJob = async (req, res, next) => {
   res.status(200).json({ status: 'done' });
 }
 
+const getUserByApp = async (req, res, next) => {
+  let users;
+
+  var usersList = [];
+  try {
+    const job = await Job.findById(req.params.jid);
+
+    // job.applier.map(async item => {
+    //   const getuser = await User.findById(item)
+    //   console.log(getuser.name)
+    //   usersList.push(getuser.name)
+    // })
+    for(let i = 0; i < job.applier.length ; i++){
+      const getuser = await User.findById(job.applier[i])
+      usersList.push(getuser)
+    }
+    console.log(usersList)
+    res.json({usersList : usersList})
+
+  } catch (err) {
+    console.log(err)
+    const error = new HttpError(
+      'Fetching users failed, please try again later.',
+      500
+    );
+    return next(error);
+  }
+
+  if (!users || users.length === 0) {
+    return next(
+      new HttpError('Could not find users for the provided user id.', 404)
+    );
+  }
+
+};
+
 exports.getUsers = getUsers;
+exports.getUserByApp = getUserByApp;
 exports.signup = signup;
 exports.login = login;
 exports.applyJob = applyJob;
