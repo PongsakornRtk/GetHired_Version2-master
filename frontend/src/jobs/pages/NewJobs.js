@@ -28,14 +28,30 @@ const NewJob = () => {
         value: '',
         isValid: false
       },
-      // address: {
-      //   value: '',
-      //   isValid: true,
-      // },
       image: {
         value: null,
         isValid: false
-      }
+      },
+      companyName:{
+        value: null,
+        isValid:false
+      },
+      wage:{
+        value: null,
+        isValid:false
+      },
+      expDate:{
+        value: null,
+        isValid:false
+      },
+      categories:{
+        value: null,
+        isValid:false
+      },
+      companyAddress:{
+        value: null,
+        isValid:false
+      },
     },
     false
   );
@@ -46,10 +62,15 @@ const NewJob = () => {
     event.preventDefault();
     try {
       const formData = new FormData();
+      formData.append('companyName', formState.inputs.companyName.value);
+      formData.append('companyAddress', formState.inputs.companyAddress.value);
+      formData.append('categories', formState.inputs.categories.value);
       formData.append('title', formState.inputs.title.value);
       formData.append('description', formState.inputs.description.value);
-      // formData.append('address', formState.inputs.address.value);
       formData.append('image', formState.inputs.image.value);
+      formData.append('wage', formState.inputs.wage.value);
+      formData.append('expDate', formState.inputs.expDate.value);
+
       await sendRequest('http://localhost:5000/api/jobs', 'POST', formData, {
         Authorization: 'Bearer ' + auth.token
       });
@@ -79,18 +100,55 @@ const NewJob = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
-        {/* <Input
-          id="address"
-          element="input"
-          label="Address"
-          validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid address."
-          onInput={inputHandler}
-        /> */}
         <ImageUpload
           id="image"
           onInput={inputHandler}
           errorText="Please provide an image."
+        />
+        <Input
+          id="wage"
+          element="input"
+          type="text"
+          label="Wage"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid wage."
+          onInput={inputHandler}
+        />
+        <Input
+          id="expDate"
+          element="input"
+          type="text"
+          label="Exp Date"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid exp date."
+          onInput={inputHandler}
+        />
+        <Input
+          id="categories"
+          element="input"
+          type="text"
+          label="Categories"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid categories."
+          onInput={inputHandler}
+        />
+        <Input
+          id="companyName"
+          element="input"
+          type="text"
+          label="Company Name"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid company name."
+          onInput={inputHandler}
+        />
+        <Input
+          id="companyAddress"
+          element="input"
+          type="text"
+          label="Company Address"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid company address."
+          onInput={inputHandler}
         />
         <Button type="submit" disabled={!formState.isValid}>
           ADD JOB

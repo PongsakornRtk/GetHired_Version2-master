@@ -26,10 +26,13 @@ const JobList = props => {
           image={job.image}
           title={job.title}
           description={job.description}
-          address={job.address}
           creatorId={job.creator}
-          coordinates={job.location}
           onDelete={job.onDeleteJob}
+          companyName={job.companyName}
+          wage={job.wage}
+          expDate={job.expDate}
+          categories={job.categories}
+          companyAddress={job.companyAddress}
         />
       ))}
     </ul>

@@ -3,7 +3,6 @@ import React, { useState, useContext } from "react";
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
 import Modal from "../../shared/components/UIElements/Modal";
-import Map from "../../shared/components/UIElements/Map";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { AuthContext } from "../../shared/context/auth-context";
@@ -13,10 +12,8 @@ import "./JobItem.css";
 const JobItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
-  const [showMap, setShowMap] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-  const closeMapHandler = () => setShowMap(false);
 
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
@@ -44,18 +41,6 @@ const JobItem = (props) => {
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
-      <Modal
-        show={showMap}
-        onCancel={closeMapHandler}
-        header={props.address}
-        contentClass="job-item__modal-content"
-        footerClass="job-item__modal-actions"
-        footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
-      >
-        <div className="map-container">
-          <Map center={props.coordinates} zoom={16} />
-        </div>
-      </Modal>
       <Modal
         show={showConfirmModal}
         onCancel={cancelDeleteHandler}
@@ -87,9 +72,13 @@ const JobItem = (props) => {
             />
           </div>
           <div className="job-item__info">
-            <h2>{props.title}</h2>
-            <h3>{props.address}</h3>
-            <p>{props.description}</p>
+            <h2> Company Name: {props.companyName}</h2>
+            <h2> Categories:{props.categories}</h2>
+            <h2> Job Name: {props.title}</h2>
+            <h2> Job description: {props.description}</h2>
+            <h2>Wage :{props.wage}</h2>
+            <h2>Exp Date: {props.expDate}</h2>
+            <h2>Company Address:{props.companyAddress}</h2>
           </div>
           <div className="job-item__actions">
             {auth.userId === props.creatorId && (

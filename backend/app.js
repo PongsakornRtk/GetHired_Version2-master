@@ -50,7 +50,7 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(
     `mongodb+srv://TerPsk:tjkproject@tjk-cluster.xawgl.mongodb.net/gethired?retryWrites=true&w=majority`
-  )
+    )
   .then(() => {
     app.listen(5000);
   })

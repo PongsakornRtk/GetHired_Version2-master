@@ -48,7 +48,7 @@ const signup = async (req, res, next) => {
 
   console.log(req.body);
 
-  const { name, email, password, companyAddress, telNo, employer } = req.body;
+  const { name, email, password, companyAddress, telNo, employer, dob, website, resume } = req.body;
 
   let existingUser;
   try {
@@ -88,6 +88,9 @@ const signup = async (req, res, next) => {
     employer,
     telNo,
     companyAddress,
+    website,
+    dob,
+    resume,
     jobs: []
   });
 
@@ -210,24 +213,17 @@ const applyJob = async (req, res, next) => {
     const sess = await mongoose.startSession();
     sess.startTransaction();
     
-    console.log('asdsad');
-    console.log('usser', user)
     
     job.applier.push(user);
     
-    console.log('console')
-    console.log('asdsaddaqawedqeq');
     user.jobs.push(job);
     
-    console.log('asdsaddaqawedqeq23132131');
-    
-    console.log('sadasd2');
     
     await job.save({ session: sess });
     await user.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
-    console.log(err);
+    
     const error = new HttpError(
       'Something went wrong, could not find job.',
       500

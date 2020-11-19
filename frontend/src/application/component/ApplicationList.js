@@ -23,6 +23,7 @@ const ApplicationList = props => {
         id={user.id}
         image={user.image}
         name={user.name}
+        email={user.email}
         telNo={user.telNo}
         />
       ))}

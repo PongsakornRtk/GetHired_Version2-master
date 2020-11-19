@@ -43,12 +43,15 @@ const Auth = () => {
           formState.inputs.name.value &&
           formState.inputs.email.value &&
           formState.inputs.password.value &&
-          formState.inputs.telNo.value !== ""
+          formState.inputs.telNo.value &&
+          formState.inputs.website &&
+          formState.inputs.companyAddress&&
+          formState.inputs.resume &&
+        formState.inputs.dob !== ""
         ) {
-          console.log("checked!");
-          console.log(formState);
           return false;
-        } else {
+        }
+        else {
           return true;
         }
       } else {
@@ -71,7 +74,6 @@ const Auth = () => {
           name: undefined,
           image: undefined,
         },
-
         true
       );
     } else {
@@ -92,6 +94,18 @@ const Auth = () => {
             isValid: false,
           },
           telNo: {
+            value: "",
+            isValid: false,
+          },
+          website: {
+            value: "",
+            isValid: false,
+          },
+          dob: {
+            value: "",
+            isValid: false,
+          },
+          resume: {
             value: "",
             isValid: false,
           },
@@ -132,7 +146,9 @@ const Auth = () => {
         formData.append("name", formState.inputs.name.value);
         formData.append("password", formState.inputs.password.value);
         formData.append("image", formState.inputs.image.value);
-
+        formData.append("website", formState.inputs.website.value);
+        formData.append("resume", formState.inputs.resume.value);
+        formData.append("dob", formState.inputs.dob.value);
         formData.append(
           "companyAddress",
           formState.inputs.companyAddress.value
@@ -176,6 +192,11 @@ const Auth = () => {
             value: "",
             isValid: false,
           },
+          ...formState.inputs,
+          website: {
+            value: "",
+            isValid: false,
+          },
         },
         true
       );
@@ -196,25 +217,26 @@ const Auth = () => {
               ARE YOU {isAddressable ? "A FREELANCER" : "AN EMPLOYER"}
             </Button>
           )}
-          {!isLoginMode && (
-            <Input
-              element="input"
-              id="name"
-              type="text"
-              label="Your Name"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a name."
-              onInput={inputHandler}
-            />
-          )}
-          {!isLoginMode && (
-            <ImageUpload
-              center
-              id="image"
-              onInput={inputHandler}
-              errorText="Please provide an image."
-            />
-          )}
+          {!isLoginMode &&
+            (
+              <Input
+                element="input"
+                id="name"
+                type="text"
+                label="Your Name"
+                validators={[VALIDATOR_REQUIRE()]}
+                errorText="Please enter a name."
+                onInput={inputHandler}
+              />
+            )}
+          {!isLoginMode &&(
+              <ImageUpload
+                center
+                id="image"
+                onInput={inputHandler}
+                errorText="Please provide an image."
+              />
+            )}
           <Input
             element="input"
             id="email"
@@ -245,14 +267,47 @@ const Auth = () => {
             />
           )}
 
+          {!isLoginMode && !isAddressable &&(
+            <Input
+              element="input"
+              id="dob"
+              type="text"
+              label="Your Date of birth"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a date of birth"
+              onInput={inputHandler}
+            />,
+            <Input
+              element="input"
+              id="resume"
+              type="text"
+              label="Your Resume"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a resume"
+              onInput={inputHandler}
+            />
+          )}
+
           {isAddressable && !isLoginMode && (
             <Input
               element="input"
               id="companyAddress"
               type="text"
-              label="Your Address"
+              label="Company Address"
               validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a address"
+              errorText="Please enter your company address"
+              onInput={inputHandler}
+            />
+          )}
+
+          {isAddressable && !isLoginMode && (
+            <Input
+              element="input"
+              id="website"
+              type="text"
+              label="Company Website"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a website"
               onInput={inputHandler}
             />
           )}

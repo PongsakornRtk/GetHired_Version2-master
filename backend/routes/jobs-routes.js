@@ -23,6 +23,21 @@ router.post(
       .not()
       .isEmpty(),
     check('description').isLength({ min: 5 }),
+    check('companyName')
+      .not()
+      .isEmpty(),
+      check('wage')
+      .not()
+      .isEmpty(),
+      check('expDate')
+      .not()
+      .isEmpty(),
+      check('categories')
+      .not()
+      .isEmpty(),
+      check('companyAddress')
+      .not()
+      .isEmpty(),
     // check('address')
       // .not()
       // .isEmpty()
@@ -36,7 +51,19 @@ router.patch(
     check('title')
       .not()
       .isEmpty(),
-    check('description').isLength({ min: 5 })
+    check('description').isLength({ min: 5 }),
+    check('wage')
+    .not()
+    .isEmpty(),
+    check('expDate')
+    .not()
+    .isEmpty(),
+    check('categories')
+    .not()
+    .isEmpty(),
+    // check('companyAddress')
+    // .not()
+    // .isEmpty(),
   ],
   jobsControllers.updateJob
 );

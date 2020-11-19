@@ -32,6 +32,18 @@ const UpdateJob = () => {
       description: {
         value: '',
         isValid: false
+      },
+      wage: {
+        value: '',
+        isValid: false
+      },
+      expDate: {
+        value: '',
+        isValid: false
+      },
+      categories: {
+        value: '',
+        isValid: false
       }
     },
     false
@@ -53,7 +65,19 @@ const UpdateJob = () => {
             description: {
               value: responseData.job.description,
               isValid: true
-            }
+            },
+            wage: {
+              value: responseData.job.wage,
+              isValid: true
+            },
+            expDate: {
+              value: responseData.job.expDate,
+              isValid: true
+            },
+            categories: {
+              value: responseData.job.categories,
+              isValid: true
+            },
           },
           true
         );
@@ -70,7 +94,10 @@ const UpdateJob = () => {
         'PATCH',
         JSON.stringify({
           title: formState.inputs.title.value,
-          description: formState.inputs.description.value
+          description: formState.inputs.description.value,
+          wage: formState.inputs.wage.value,
+          expDate: formState.inputs.expDate.value,
+          categories: formState.inputs.categories.value,
         }),
         {
           'Content-Type': 'application/json',
@@ -125,6 +152,39 @@ const UpdateJob = () => {
             initialValue={loadedJob.description}
             initialValid={true}
           />
+          <Input
+          id="wage"
+          element="input"
+          type="text"
+          label="Wage"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid wage."
+          onInput={inputHandler}
+          initialValue={loadedJob.wage}
+          initialValid={true}
+        />
+        <Input
+          id="expDate"
+          element="input"
+          type="text"
+          label="Exp Date"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid exp date."
+          onInput={inputHandler}
+          initialValue={loadedJob.expDate}
+          initialValid={true}
+        />
+        <Input
+          id="categories"
+          element="input"
+          type="text"
+          label="Categories"
+          validators={[VALIDATOR_REQUIRE()]}
+          errorText="Please enter a valid categories."
+          onInput={inputHandler}
+          initialValue={loadedJob.categories}
+          initialValid={true}
+        />
           <Button type="submit" disabled={!formState.isValid}>
             UPDATE JOB
           </Button>

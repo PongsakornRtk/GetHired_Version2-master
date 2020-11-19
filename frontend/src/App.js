@@ -6,7 +6,6 @@ import {
   Switch,
 } from "react-router-dom";
 
-import Users from './user/pages/Users';
 import NewJobs from "./jobs/pages/NewJobs";
 import UserJobs from "./jobs/pages/UserJobs";
 import UpdateJobs from "./jobs/pages/UpdateJobs";
@@ -28,7 +27,6 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <FreelancerDashboard />
-          <Users />
           <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>

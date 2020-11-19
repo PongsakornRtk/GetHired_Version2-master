@@ -11,6 +11,9 @@ const userSchema = new Schema({
   telNo: { type: String, required: true },
   image: { type: String, required: true },
   employer: {type:Boolean, required: true, default: false},
+  website: { type: String, required: false },
+  dob:{ type: String, required: false },
+  resume:{type:String, required:false},
   jobs: [{ type: mongoose.Types.ObjectId, required: false, ref: 'job' }]
 });
 

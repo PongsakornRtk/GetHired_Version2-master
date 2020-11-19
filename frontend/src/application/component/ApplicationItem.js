@@ -84,8 +84,9 @@ const ApplicationItem = (props) => {
             <Avatar image={`http://localhost:5000/${props.image}`} alt={props.name} />
           </div>
           <div className="app-item__info">
-            <h2>{props.name}</h2>
-            <h2>{props.telNo}</h2>
+            <h2> Name: {props.name}</h2>
+            <h2> E-mail: {props.email}</h2>
+            <h2> Tel No.:{props.telNo}</h2>
           </div>
 
           <div className="app-item__actions">

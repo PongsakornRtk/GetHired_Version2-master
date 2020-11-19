@@ -1,9 +1,9 @@
 .jobtype {
   width: 100%;
   text-align: center;
-  position: fixed;
+  /* position: fixed; */
   height: 100%;
-  margin: 3vw 0vw 5vw 0vw;
+  margin: 9vw 0vw 5vw 0vw;
 }
 
 #frontendbutton {

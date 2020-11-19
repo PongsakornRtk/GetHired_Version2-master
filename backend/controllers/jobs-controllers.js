@@ -86,12 +86,9 @@ const createJobs = async (req, res, next) => {
     );
   }
 
-  const { title, description, address } = req.body;
+  const { title, description, companyAddress,companyName,wage,expDate,categories } = req.body;
 
-  // let coordinates;
   try {
-    
-    // coordinates = await getCoordsForAddress(address);
   } catch (error) {
     return next(error);
   }
@@ -99,9 +96,12 @@ const createJobs = async (req, res, next) => {
   const createdJob = new Job({
     title,
     description,
-    // address,
-    // location: coordinates,
     image: req.file.path,
+    companyAddress,
+    companyName,
+    wage,
+    expDate,
+    categories,
     creator: req.userData.userId
   });
 
@@ -149,7 +149,7 @@ const updateJob = async (req, res, next) => {
     );
   }
 
-  const { title, description } = req.body;
+  const { title, description,wage,categories,expDate } = req.body;
   const jobId = req.params.jid;
 
   let job;
@@ -170,6 +170,11 @@ const updateJob = async (req, res, next) => {
 
   job.title = title;
   job.description = description;
+  // job.companyAddress = companyAddress;
+  job.wage = wage;
+  job.expDate = expDate;
+  job.categories = categories;
+
 
   try {
     await job.save();
