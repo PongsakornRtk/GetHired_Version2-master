@@ -33,14 +33,14 @@
 }
 
 .button--danger {
-  background: #830000;
-  border-color: #830000;
+  background: #ff415b;
+  border-color: #ff415b;
 }
 
 .button--danger:hover,
 .button--danger:active {
-  background: #ff415b;
-  border-color: #ff415b;
+  background: #fd7083;
+  border-color: #fd7083;
 }
 
 .button:disabled,
