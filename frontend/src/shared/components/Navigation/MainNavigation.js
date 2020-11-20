@@ -6,7 +6,7 @@ import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
 import Backdrop from '../UIElements/Backdrop';
 import './MainNavigation.css';
-import ghLogo from "../../../pictures/Logo/GH_demo_logo.png"
+import ghLogo from "../../../pictures/Logo/Get Hired Light logo.png"
 
 const MainNavigation = props => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -38,8 +38,8 @@ const MainNavigation = props => {
           <span />
         </button>
         <h1 className="main-navigation__title">
-          <img src={ghLogo} width="40px" height="40px" alt="ghLogo" />&nbsp;
-          <Link to="/">GetHired</Link>
+          
+          <Link to="/"><img src={ghLogo} height="50px" alt="ghLogo" />&nbsp;</Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />
