@@ -4,11 +4,9 @@ const { validationResult } = require('express-validator');
 const mongoose = require('mongoose');
 
 const HttpError = require('../models/http-error');
-// const getCoordsForAddress = require('../util/location');
 const Job = require('../models/job');
 const User = require('../models/user');
 const usersController = require('./users-controllers');
-// const job = require('../models/job');
 
 const getJobs = async (req, res, next) => {
   let jobs;
@@ -48,11 +46,9 @@ const getJobById = async (req, res, next) => {
 
   res.json({ job: job.toObject({ getters: true }) });
 };
-// ``
 const getJobsByUserId = async (req, res, next) => {
   const userId = req.params.uid;
 
-  // let places;
   try {
     jobs = await Job.find({ creator: userId });
   } catch (err) {
@@ -63,7 +59,6 @@ const getJobsByUserId = async (req, res, next) => {
     return next(error);
   }
 
-  // if (!places || places.length === 0) {
   if (!jobs || jobs.length === 0) {
     return next(
       new HttpError('Could not find jobs for the provided user id.', 404)

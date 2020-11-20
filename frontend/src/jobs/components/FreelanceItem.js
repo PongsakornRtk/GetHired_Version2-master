@@ -33,7 +33,6 @@ const FreelanceItem = props => {
           Authorization: 'Bearer ' + auth.token
         }
       );
-      // props.onDelete(props.id);
     } catch (err) {}
   };
 
@@ -75,9 +74,6 @@ const FreelanceItem = props => {
             <p>{props.description}</p>
           </div>
           <div className="job-item__actions">
-            {/* <Button inverse onClick={openMapHandler}>
-              VIEW ON MAP
-            </Button> */}
             {auth.userId && !auth.employer &&(
               <Button onClick={showApplyWarningHandler}>APPLY</Button>
             )}

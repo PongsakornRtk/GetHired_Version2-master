@@ -177,10 +177,7 @@ const Auth = () => {
       setFormData(
         {
           ...formState.inputs,
-          // name: undefined,
-          // image: undefined
         },
-        // formState.inputs.email.isValid && formState.inputs.password.isValid
         true
       );
     } else {
