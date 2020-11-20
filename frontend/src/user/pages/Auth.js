@@ -15,6 +15,7 @@ import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
+import ghLogo from "../../pictures/Logo/Get Hired Dark logo.png"
 
 const Auth = () => {
   const auth = useContext(AuthContext);
@@ -209,12 +210,13 @@ const Auth = () => {
       <ErrorModal error={error} onClear={clearError} />
       <Card className="authentication">
         {isLoading && <LoadingSpinner asOverlay />}
+        <img src={ghLogo} height="50px" alt="ghLogo" />
         <h2>Login Required</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
             <Button type="button" inverse onClick={switchAddressHandler}>
-              ARE YOU {isAddressable ? "A FREELANCER" : "AN EMPLOYER"}
+              ARE YOU {isAddressable ? "A FREELANCER ?" : "AN EMPLOYER ?"}
             </Button>
           )}
           {!isLoginMode &&
