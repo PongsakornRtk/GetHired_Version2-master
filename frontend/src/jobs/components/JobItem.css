@@ -7,8 +7,9 @@
 }
 
 .job-item__info {
+  color: #51606c;
   padding: 1rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .job-item__image {
