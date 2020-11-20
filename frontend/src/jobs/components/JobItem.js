@@ -72,13 +72,15 @@ const JobItem = (props) => {
             />
           </div>
           <div className="job-item__info">
-            <h2> Company Name: {props.companyName}</h2>
-            <h2> Categories:{props.categories}</h2>
-            <h2> Job Name: {props.title}</h2>
-            <h2> Job description: {props.description}</h2>
-            <h2>Wage :{props.wage}</h2>
-            <h2>Exp Date: {props.expDate}</h2>
-            <h2>Company Address:{props.companyAddress}</h2>
+            <h1>{props.title}</h1>
+            <h3> Categories:&nbsp;&nbsp;{props.categories}</h3>
+            <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
+            <h3> Job description:</h3>
+            <h5> {props.description}</h5>
+            <h3>Wage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.wage} ฿</h3>
+            <h3>Exp Date:&nbsp;&nbsp;&nbsp;&nbsp; {props.expDate}</h3>
+            <h3>Company Address:</h3>
+            <h5>{props.companyAddress}</h5>
           </div>
           <div className="job-item__actions">
             {auth.userId === props.creatorId && (
