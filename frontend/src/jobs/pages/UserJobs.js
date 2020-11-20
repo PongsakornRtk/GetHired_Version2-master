@@ -9,7 +9,6 @@ import { useHttpClient } from '../../shared/hooks/http-hook';
 const UserJobs = () => {
   const [loadedJobs, setLoadedJobs] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-
   const userId = useParams().userId;
 
   useEffect(() => {
