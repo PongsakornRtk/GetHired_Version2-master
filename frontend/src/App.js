@@ -10,7 +10,6 @@ import NewJobs from "./jobs/pages/NewJobs";
 import UserJobs from "./jobs/pages/UserJobs";
 import UpdateJobs from "./jobs/pages/UpdateJobs";
 import Freelance from "./jobs/pages/Freelance";
-import FreelancerDashboard from "./shared/components/Dashboard/FreelancerDashboard";
 import Application from "./application/pages/Application";
 import Auth from "./user/pages/Auth";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
@@ -26,7 +25,6 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <FreelancerDashboard />
           <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>
@@ -51,8 +49,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/" exact>
-          <FreelancerDashboard />
-          <Freelance />
+         <Freelance />
         </Route>
         <Route path="/:userId/jobs" exact>
           <UserJobs />

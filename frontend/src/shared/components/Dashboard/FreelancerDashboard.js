@@ -5,22 +5,22 @@ import "./Dashboard.css";
 const FreelancerDashboard = () => {
   return (
     <div className="jobtype">
-      <Link to="/categories/Front-end">
+      <Link to="">
         <span id="frontendbutton">Front-end</span>
       </Link>
-      <Link to="/categories/Back-end">
+      <Link to="">
         <span id="backendbutton">Back-end</span>
       </Link>
-      <Link to="/categories/Network">
+      <Link to="">
         <span id="networkbutton">Network</span>
       </Link>
-      <Link to="/categories/Database">
+      <Link to="">
         <span id="dbbutton">Database</span>
       </Link>
-      <Link to="/categories/UXnUI">
+      <Link to="">
         <span id="uibutton">UX & UI</span>
       </Link>
-      <Link to="/categories/Other">
+      <Link to="">
         <span id="otherbutton">Other</span>
       </Link>
     </div>
