@@ -72,7 +72,7 @@ const Freelance = () => {
             <span id="otherbutton">Other</span>
           </Link>
           <Link to="" onClick={() => filterByCategory("All")}>
-            <span id="otherbutton">Reset</span>
+            <span id="otherbutton">All Jobs</span>
           </Link>
         </div>
         <ErrorModal error={error} onClear={clearError} />
