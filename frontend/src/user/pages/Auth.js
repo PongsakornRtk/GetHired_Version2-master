@@ -10,12 +10,13 @@ import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
+  VALIDATOR_TEL,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
-import ghLogo from "../../pictures/Logo/Get Hired Dark logo.png"
+import ghLogo from "../../pictures/Logo/Get Hired Dark logo.png";
 
 const Auth = () => {
   const auth = useContext(AuthContext);
@@ -42,17 +43,18 @@ const Auth = () => {
       if (formState.inputs.name) {
         if (
           formState.inputs.name.value &&
+          formState.inputs.image.value &&
           formState.inputs.email.value &&
           formState.inputs.password.value &&
           formState.inputs.telNo.value &&
           formState.inputs.website &&
-          formState.inputs.companyAddress&&
+          formState.inputs.companyAddress &&
           formState.inputs.resume &&
-        formState.inputs.dob !== ""
+          formState.inputs.dob &&
+          formState.inputs.employer !== ""
         ) {
           return false;
-        }
-        else {
+        } else {
           return true;
         }
       } else {
@@ -164,7 +166,11 @@ const Auth = () => {
         );
         console.log(responseData);
 
-        auth.login(responseData.userId, responseData.token);
+        auth.login(
+          responseData.userId,
+          responseData.token,
+          responseData.employer
+        );
       } catch (err) {
         console.log(err);
       }
@@ -216,26 +222,25 @@ const Auth = () => {
               ARE YOU {isAddressable ? "A FREELANCER ?" : "AN EMPLOYER ?"}
             </Button>
           )}
-          {!isLoginMode &&
-            (
-              <Input
-                element="input"
-                id="name"
-                type="text"
-                label="Your Name"
-                validators={[VALIDATOR_REQUIRE()]}
-                errorText="Please enter a name."
-                onInput={inputHandler}
-              />
-            )}
-          {!isLoginMode &&(
-              <ImageUpload
-                center
-                id="image"
-                onInput={inputHandler}
-                errorText="Please provide an image."
-              />
-            )}
+          {!isLoginMode && (
+            <Input
+              element="input"
+              id="name"
+              type="text"
+              label="Your Name"
+              validators={[VALIDATOR_REQUIRE()]}
+              errorText="Please enter a name."
+              onInput={inputHandler}
+            />
+          )}
+          {!isLoginMode && (
+            <ImageUpload
+              center
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+          )}
           <Input
             element="input"
             id="email"
@@ -259,27 +264,30 @@ const Auth = () => {
               element="input"
               id="telNo"
               type="text"
-              label="Your Telephone Number"
-              validators={[VALIDATOR_REQUIRE()]}
-              errorText="Please enter a Tel No."
+              label="Your Telephone Number (only number)"
+              validators={[VALIDATOR_TEL(9)]}
+              errorText="Please enter a correct telephone number."
               onInput={inputHandler}
             />
           )}
 
-          {!isLoginMode && !isAddressable &&(
+          {!isLoginMode && !isAddressable && (
             <Input
               element="input"
               id="dob"
-              type="text"
+              type="date"
               label="Your Date of birth"
               validators={[VALIDATOR_REQUIRE()]}
               errorText="Please enter a date of birth"
               onInput={inputHandler}
-            />,
+            />
+          )}
+
+          {!isLoginMode && !isAddressable && (
             <Input
               element="input"
               id="resume"
-              type="text"
+              type="file"
               label="Your Resume"
               validators={[VALIDATOR_REQUIRE()]}
               errorText="Please enter a resume"
