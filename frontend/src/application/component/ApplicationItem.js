@@ -70,7 +70,7 @@ const ApplicationItem = (props) => {
           <div className="app-item__info">
             <h2> Name: {props.name}</h2>
             <h2> E-mail: {props.email}</h2>
-            <h2> Tel No.:{props.telNo}</h2>
+            <h2> Tel No.: {props.telNo}</h2>
           </div>
 
           <div className="app-item__actions">
