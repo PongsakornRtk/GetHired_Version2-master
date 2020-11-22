@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import FreelanceList from "../components/FreelanceList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
@@ -9,8 +9,8 @@ import "../components/Dashboard.css";
 const Freelance = () => {
   const [loadedJobs, setLoadedJobs] = useState();
   const [filterList, setFilterList] = useState([]);
+  const [searchList, setSearchList] = useState([]);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const jobId = useParams().jobId;
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -23,7 +23,7 @@ const Freelance = () => {
       } catch (err) {}
     };
     fetchJobs();
-  }, [sendRequest, jobId]);
+  }, [sendRequest]);
 
   const jobApplyHandler = (applyJobId) => {
     setLoadedJobs((prevJobs) =>
@@ -32,11 +32,11 @@ const Freelance = () => {
   };
 
   function filterByCategory(category) {
-    const jobList = loadedJobs;
     if (category === "All") {
       setFilterList(loadedJobs);
     } else {
-      let filterSuc = [];
+      const filterSuc = [];
+      const jobList = loadedJobs;
       for (let i = 0; i < jobList.length; i++) {
         for (let j = 0; j < jobList[i].categories.length; j++) {
           if (category === jobList[i].categories[j]) {
@@ -48,10 +48,35 @@ const Freelance = () => {
       }
     }
   }
+
+  const handleChange = (event) => {
+    let eventList = event.target.value; //ดึงค่าที่รับมาใส่ตัวแปร
+    setSearchList(eventList);
+    console.log("searchList: " + searchList);
+    let jobFilted = []; //สร้างตัวแปรมารับชุดข้อมูลที่กรองได้
+    let jobList = loadedJobs; //สร้างตัวมาที่ดึงข้อมูลมาจากชุดข้อมูล loadedJobs
+    if (eventList !== "") {
+      //ถ้าค่าที่รับมานั้นไม่ว่าง (หรือก็คือมีอะไรอยู่ในช่องค้นหา)
+      jobFilted = jobList.filter(
+        (
+          item //นำชุดข้อมูลที่มีอยู่ มากรอง แล้วไปแทนค่า
+        ) => item.title.toLowerCase().includes(eventList.toLowerCase()) //โดยเช็คค่าที่มีอยู่ว่ามันมีค่าที่เหมือนใน .includes() หรือไม่
+      );
+      setFilterList(jobFilted); //นำชุดข้อมูลที่กรองได้ไปใส่ในชุดข้อมูลที่ทำหน้าที่แสดงค่า
+    } else {
+      setFilterList(jobList); //ถ้าไม่มีก็ให้แสดงชุดข้อมูลทั้งหมดที่มี
+    }
+  };
+
   return (
     <React.Fragment>
       <div>
-        {/* <FreelancerDashboard/> */}
+        <input
+          type="text" //ประเภทของการกรอก (ข้อความสั้น ๆ)
+          placeholder="Search" //ตัวเทา ๆ ในช่องกรอก
+          value={filterList.title} //แสดงค่าที่กรอกให้เห็น
+          onChange={handleChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
+        />
         <div className="jobtype">
           <Link to="" onClick={() => filterByCategory("Frontend")}>
             <span id="frontendbutton">Front-end</span>
@@ -72,7 +97,7 @@ const Freelance = () => {
             <span id="otherbutton">Other</span>
           </Link>
           <Link to="" onClick={() => filterByCategory("All")}>
-            <span id="otherbutton">All Jobs</span>
+            <span id="otherbutton">Reset</span>
           </Link>
         </div>
         <ErrorModal error={error} onClear={clearError} />
