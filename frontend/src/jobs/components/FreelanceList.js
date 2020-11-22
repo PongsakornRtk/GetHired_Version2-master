@@ -25,6 +25,11 @@ const JobList = props => {
           title={job.title}
           description={job.description}
           creatorId={job.creator}
+          companyName={job.companyName}
+          wage={job.wage}
+          expDate={job.expDate}
+          categories={job.categories}
+          companyAddress={job.companyAddress}
           onApply={job.confirmApplyHandler}
         />
       ))}

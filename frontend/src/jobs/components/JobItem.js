@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Moment from "react-moment";
 
 import Card from "../../shared/components/UIElements/Card";
 import Button from "../../shared/components/FormElements/Button";
@@ -13,7 +14,6 @@ const JobItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-
 
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
@@ -77,8 +77,16 @@ const JobItem = (props) => {
             <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
             <h3> Job description:</h3>
             <h5> {props.description}</h5>
-            <h3>Wage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.wage} ฿</h3>
-            <h3>Exp Date:&nbsp;&nbsp;&nbsp;&nbsp; {props.expDate}</h3>
+            <h3>
+              Wage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {props.wage} ฿
+            </h3>
+            <h3>
+              Expiration Date:{" "}
+              <Moment format="D MMM YYYY" withTitle>
+                {props.expDate}
+              </Moment>
+            </h3>
             <h3>Company Address:</h3>
             <h5>{props.companyAddress}</h5>
           </div>
