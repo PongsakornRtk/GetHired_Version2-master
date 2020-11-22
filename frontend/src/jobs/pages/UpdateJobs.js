@@ -165,7 +165,7 @@ const UpdateJob = () => {
         <Input
           id="expDate"
           element="input"
-          type="text"
+          type="date"
           label="Exp Date"
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid exp date."
