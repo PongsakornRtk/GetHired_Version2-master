@@ -8,7 +8,7 @@ const jobSchema = new Schema({
   image: { type: String, required: true },
   companyName: { type: String, required: false },
   wage: { type: Number, required: true },
-  expDate: { type: String, required: true },
+  expDate: { type: Date, required: true },
   categories: [{ type: String, required: true }],
   companyAddress: { type: String, required: false },
   creator: { type: mongoose.Types.ObjectId, required: true, ref: "User" },

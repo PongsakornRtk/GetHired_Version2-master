@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
+const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const Schema = mongoose.Schema;
 
@@ -10,13 +10,13 @@ const userSchema = new Schema({
   companyAddress: { type: String, required: false },
   telNo: { type: String, required: true },
   image: { type: String, required: true },
-  employer: {type:Boolean, required: true, default: false},
+  employer: { type: Boolean, required: true, default: false },
   website: { type: String, required: false },
-  dob:{ type: String, required: false },
-  resume:{type:String, required:false},
-  jobs: [{ type: mongoose.Types.ObjectId, required: false, ref: 'job' }]
+  dob: { type: Date, required: false },
+  resume: { type: String, required: false },
+  jobs: [{ type: mongoose.Types.ObjectId, required: false, ref: "job" }],
 });
 
 userSchema.plugin(uniqueValidator);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
