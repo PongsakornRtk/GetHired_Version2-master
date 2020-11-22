@@ -49,8 +49,17 @@
   margin: 0.5rem;
 }
 
+.jobDes {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.row{
+  align-items: center;
+}
+
 @media (min-width: 768px) {
   .job-item__image {
     height: 20rem;
-  } 
+  }
 }
