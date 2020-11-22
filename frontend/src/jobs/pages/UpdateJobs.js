@@ -166,9 +166,9 @@ const UpdateJob = () => {
           id="expDate"
           element="input"
           type="date"
-          label="Exp Date"
+          label="Expiration Date"
           validators={[VALIDATOR_REQUIRE()]}
-          errorText="Please enter a valid exp date."
+          errorText="Please enter a valid expiration date."
           onInput={inputHandler}
           initialValue={loadedJob.expDate}
           initialValid={true}
