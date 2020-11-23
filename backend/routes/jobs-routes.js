@@ -26,9 +26,7 @@ router.post(
     check("expDate").not().isEmpty(),
     check("categories").not().isEmpty(),
     check("companyAddress").not().isEmpty(),
-    // check('address')
-    // .not()
-    // .isEmpty()
+
   ],
   jobsControllers.createdJob
 );
@@ -41,9 +39,6 @@ router.patch(
     check("wage").not().isEmpty(),
     check("expDate").not().isEmpty(),
     check("categories").not().isEmpty(),
-    // check('companyAddress')
-    // .not()
-    // .isEmpty(),
   ],
   jobsControllers.updateJob
 );
