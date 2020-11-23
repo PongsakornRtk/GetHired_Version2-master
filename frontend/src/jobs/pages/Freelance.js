@@ -5,7 +5,7 @@ import FreelanceList from "../components/FreelanceList";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import "../components/Dashboard.css";
+import "./Freelance.css";
 const Freelance = () => {
   const [loadedJobs, setLoadedJobs] = useState();
   const [filterList, setFilterList] = useState([]);
@@ -71,12 +71,14 @@ const Freelance = () => {
   return (
     <React.Fragment>
       <div>
-        <input
-          type="text" //ประเภทของการกรอก (ข้อความสั้น ๆ)
-          placeholder="Search" //ตัวเทา ๆ ในช่องกรอก
-          value={filterList.title} //แสดงค่าที่กรอกให้เห็น
-          onChange={handleChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
-        />
+        <div className="search">
+          <input
+            type="text" //ประเภทของการกรอก (ข้อความสั้น ๆ)
+            placeholder="Search" //ตัวเทา ๆ ในช่องกรอก
+            value={filterList.title} //แสดงค่าที่กรอกให้เห็น
+            onChange={handleChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
+          />
+        </div>
         <div className="jobtype">
           <Link to="" onClick={() => filterByCategory("Frontend")}>
             <span id="frontendbutton">Front-end</span>
