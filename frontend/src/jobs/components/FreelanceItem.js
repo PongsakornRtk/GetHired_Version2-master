@@ -89,8 +89,11 @@ const FreelanceItem = (props) => {
             <h3>Company Address:</h3>
             <h5>{props.companyAddress}</h5>
           </div>
+<<<<<<< HEAD
           
 
+=======
+>>>>>>> eeb857a9ba7908f5c33fc6d41c2c735502c3035b
           <div className="job-item__actions">
             {auth.userId && !auth.employer && (
               <Button onClick={showApplyWarningHandler}>APPLY</Button>
