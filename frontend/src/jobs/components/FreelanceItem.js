@@ -61,6 +61,9 @@ const FreelanceItem = (props) => {
     } catch (err) {}
   };
 
+  const cat = props.categories.map((el) => 
+    el + " ");
+
   return (
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
@@ -118,7 +121,7 @@ const FreelanceItem = (props) => {
             </div>
             <div className="job-item__info">
               <h1>{props.title}</h1>
-              <h3> Categories:&nbsp;&nbsp;{props.categories}</h3>
+              <h3> Categories:&nbsp;&nbsp;{cat}</h3>
               <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
               <h3> Job description:</h3>
               <h5> {props.description}</h5>
@@ -163,7 +166,7 @@ const FreelanceItem = (props) => {
             </div>
             <div className="job-item__info">
               <h1>{props.title}</h1>
-              <h3> Categories:&nbsp;&nbsp;{props.categories}</h3>
+              <h3> Categories:&nbsp;&nbsp;{cat}</h3>
               <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
               <h3> Job description:</h3>
               <h5> {props.description}</h5>
