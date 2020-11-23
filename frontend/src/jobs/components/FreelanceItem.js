@@ -71,81 +71,25 @@ const FreelanceItem = (props) => {
             />
           </div>
           <div className="job-item__info">
-            <div className="container">
-              <div className="row">
-                <div className="col">
-                  <h1>{props.title}</h1>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col col-sm-4">
-                  <h3>Categories: </h3>
-                </div>
-
-                <div className="col col-sm-8">
-                  <span className="row">
-                    {props.categories.map((value, index) => {
-                      return (
-                        <h5 key={index} className="col-sm-4">
-                          {value}
-                        </h5>
-                      );
-                    })}
-                  </span>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col-8 col-sm-4">
-                  <h3>Company: </h3>
-                </div>
-
-                <div className="col-8 col-sm-4">
-                  <h5>{props.companyName}</h5>
-                </div>
-              </div>
-              <br />
-              <h3>Job description: </h3>
-              <h5 className="jobDes">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.description}
-              </h5>
-              <br />
-              <div className="row">
-                <div className="col">
-                  <h3>Wage: </h3>
-                </div>
-
-                <div className="col">
-                  <h5>{props.wage} ฿</h5>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col">
-                  <h3>Expiration Date: </h3>
-                </div>
-
-                <div className="col">
-                  <h5>
-                    <Moment format="D MMM YYYY">{props.expDate}</Moment>
-                  </h5>
-                </div>
-              </div>
-              <br />
-              <div className="row">
-                <div className="col">
-                  <h3>Company Address: </h3>
-                </div>
-              </div>
-
-              <div className="row">
-                <div className="col">
-                  <h5 className="jobDes">{props.companyAddress}</h5>
-                </div>
-              </div>
-            </div>
+            <h1>{props.title}</h1>
+            <h3> Categories:&nbsp;&nbsp;{props.categories}</h3>
+            <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
+            <h3> Job description:</h3>
+            <h5> {props.description}</h5>
+            <h3>
+              Wage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {props.wage} ฿
+            </h3>
+            <h3>
+              Expiration Date:{" "}
+              <Moment format="D MMM YYYY" withTitle>
+                {props.expDate}
+              </Moment>
+            </h3>
+            <h3>Company Address:</h3>
+            <h5>{props.companyAddress}</h5>
           </div>
+          
 
           <div className="job-item__actions">
             {auth.userId && !auth.employer && (
