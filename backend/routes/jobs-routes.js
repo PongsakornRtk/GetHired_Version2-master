@@ -11,7 +11,7 @@ router.get("/", jobsControllers.getJobs);
 
 router.get("/:jid", jobsControllers.getJobById);
 
-router.get("/user/:uid", jobsControllers.getJobsByUserId);
+// router.get("/user/:uid", jobsControllers.getJobsByUserId);
 
 router.use(checkAuth);
 

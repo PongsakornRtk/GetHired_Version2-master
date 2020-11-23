@@ -16,9 +16,9 @@ const NavLinks = props => {
       </li> */}
       {auth.isLoggedIn && auth.employer &&(
         <>
-        <li>
+        {/* <li>
           <NavLink to={`/${auth.userId}/jobs`}>My Job</NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/job/new">Add Job</NavLink>
         </li>
