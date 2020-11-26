@@ -60,7 +60,13 @@ const Freelance = () => {
       jobFilted = jobList.filter(
         (
           item //นำชุดข้อมูลที่มีอยู่ มากรอง แล้วไปแทนค่า
-        ) => item.title.toLowerCase().includes(eventList.toLowerCase()) //โดยเช็คค่าที่มีอยู่ว่ามันมีค่าที่เหมือนใน .includes() หรือไม่
+        ) =>
+          item.title.toLowerCase().includes(eventList.toLowerCase()) ||
+          item.description.toLowerCase().includes(eventList.toLowerCase()) ||
+          item.companyName.toLowerCase().includes(eventList.toLowerCase()) ||
+          item.wage.toString().includes(eventList.toLowerCase()) ||
+          item.expDate.toString().includes(eventList.toLowerCase()) ||
+          item.companyAddress.toLowerCase().includes(eventList.toLowerCase()) //โดยเช็คค่าที่มีอยู่ว่ามันมีค่าที่เหมือนใน .includes() หรือไม่
       );
       setFilterList(jobFilted); //นำชุดข้อมูลที่กรองได้ไปใส่ในชุดข้อมูลที่ทำหน้าที่แสดงค่า
     } else {
