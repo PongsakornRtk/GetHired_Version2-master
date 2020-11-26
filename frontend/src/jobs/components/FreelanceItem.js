@@ -13,25 +13,26 @@ import "./JobItem.css";
 const FreelanceItem = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const auth = useContext(AuthContext);
+  const [showConfirmApply, setshowConfirmApply] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-  const showDeleteWarningHandler = () => {
+  const showDeleteWarningHandler = () => { //โชว์อยาลบ
     setShowConfirmModal(true);
   };
 
-  const showApplyWarningHandler = () => {
-    setShowConfirmModal(true);
+  const showApplyWarningHandler = () => { //โชว์อยากรับ
+    setshowConfirmApply(true);
   };
 
-  const cancelDeleteHandler = () => {
+  const cancelDeleteHandler = () => { //ไม่ลบงาน
     setShowConfirmModal(false);
   };
 
-  const cancelApplyHandler = () => {
-    setShowConfirmModal(false);
+  const cancelApplyHandler = () => { //ไม่รับงาน
+    setshowConfirmApply(false);
   };
 
-  const confirmDeleteHandler = async () => {
+  const confirmDeleteHandler = async () => { //อยากลบ
     setShowConfirmModal(false);
     try {
       await sendRequest(
@@ -47,8 +48,8 @@ const FreelanceItem = (props) => {
     } catch (err) {}
   };
 
-  const confirmApplyHandler = async () => {
-    setShowConfirmModal(false);
+  const confirmApplyHandler = async () => { //อยากรับ
+    setshowConfirmApply(false);
     try {
       await sendRequest(
         `http://localhost:5000/api/users/apply/${props.id}`,
@@ -68,7 +69,7 @@ const FreelanceItem = (props) => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       <Modal
-        show={showConfirmModal}
+        show={showConfirmApply}
         onCancel={cancelApplyHandler}
         header="Are you sure?"
         footerClass="job-item__modal-actions"
@@ -121,7 +122,7 @@ const FreelanceItem = (props) => {
             </div>
             <div className="job-item__info">
               <h1>{props.title}</h1>
-              <h3> Categories:&nbsp;&nbsp;{cat}</h3>
+              <h3> Categories: {cat}</h3>
               <h3> Company:&nbsp;&nbsp;&nbsp;&nbsp;{props.companyName}</h3>
               <h3> Job description:</h3>
               <h5> {props.description}</h5>
