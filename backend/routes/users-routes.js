@@ -39,6 +39,8 @@ router.post(
     // check("dob").not().isEmpty(),
     // check("website").not().isEmpty(),
     // check("resume").not().isEmpty()
+    check("telNo").not().isEmpty(),
+    check("employer").not().isEmpty(),
   ],
 
   usersController.signup

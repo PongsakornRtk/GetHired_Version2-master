@@ -85,13 +85,15 @@ const Freelance = () => {
   return (
     <React.Fragment>
       <div>
-        <div className="search">
-          <input
-            type="text" //ประเภทของการกรอก (ข้อความสั้น ๆ)
-            placeholder="Search" //ตัวเทา ๆ ในช่องกรอก
-            value={filterList.title} //แสดงค่าที่กรอกให้เห็น
-            onChange={handleSearchChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
-          />
+      <div className="searchbutton">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
+          <form className="searchbuttoform" action="">
+            <input  type="search"
+                    placeholder="Search"
+                    value={filterList.title} //แสดงค่าที่กรอกให้เห็น
+                    onChange={handleSearchChange}/>
+            <i class="fa fa-search"></i>
+          </form>
         </div>
         <div className="jobtype">
           <Button to="" onClick={() => filterByCategory("Frontend")}>

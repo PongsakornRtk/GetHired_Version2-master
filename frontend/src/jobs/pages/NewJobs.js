@@ -100,6 +100,20 @@ const NewJob = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
+        <p>Catagories</p>
+        <input type="checkbox" id="frontend" name="catagories" value="frontend"/>
+           <label>Front-end&nbsp;</label>
+        <input type="checkbox" id="backend" name="catagories" value="backend"/>
+           <label for="backend">Back-end&nbsp;</label>
+        <input type="checkbox" id="network" name="catagories" value="network"/>
+           <label for="network">Network&nbsp;</label>
+        <input type="checkbox" id="database" name="catagories" value="database"/>
+           <label for="database">Database&nbsp;</label>
+        <input type="checkbox" id="uxui" name="catagories" value="uxui"/>
+           <label for="uxui">UX & UI&nbsp;</label>
+        <input type="checkbox" id="other" name="catagories" value="other"/>
+           <label for="other">Other</label>
+        
         <ImageUpload
           id="image"
           onInput={inputHandler}
