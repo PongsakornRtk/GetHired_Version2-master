@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const PDFUpload = (props) => {
   const [file, setFile] = useState();
   const [isValid, setIsValid] = useState(false);
 
+  const filePickerRef = useRef();
   useEffect(() => {
-    if (!file) {
-      return;
-    }
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
+        if (!file) {
+          return;
+        }
   }, [file]);
 
   const pickedHandler = (event) => {
-    console.log(event.target.files)
+    filePickerRef.current.click();
     let pickedFile;
     let fileIsValid = isValid;
     if (event.target.files && event.target.files.length === 1) {
@@ -33,6 +32,7 @@ const PDFUpload = (props) => {
       <label htmlFor={props.id}>{props.label}</label>
       <input
         id={props.id}
+        ref={filePickerRef}
         type="file"
         accept="application/pdf"
         onChange={pickedHandler}

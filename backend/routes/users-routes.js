@@ -13,8 +13,22 @@ router.get("/application/:jid", usersController.getUserByApp);
 
 router.post(
   "/signup",
-  fileUpload.single("image"),
-  pdfUpload.single("resume"),
+  fileUpload.fields(
+    [
+      { 
+        name: 'image', 
+        maxCount: 1 
+      }
+    ]
+  ),
+  pdfUpload.fields(
+    [
+      { 
+        name: 'resume', 
+        maxCount: 1 
+      }
+    ]
+  ),
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
@@ -24,6 +38,7 @@ router.post(
     // check("employer").not().isEmpty(),
     // check("dob").not().isEmpty(),
     // check("website").not().isEmpty(),
+    // check("resume").not().isEmpty()
   ],
 
   usersController.signup

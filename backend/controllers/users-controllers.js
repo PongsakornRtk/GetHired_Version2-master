@@ -127,7 +127,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-
+  console.log(createdUser.id,createdUser.email,token);
   res
     .status(201)
     .json({ userId: createdUser.id, email: createdUser.email, token: token });

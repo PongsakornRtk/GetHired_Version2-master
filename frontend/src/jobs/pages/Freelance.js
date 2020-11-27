@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import FreelanceList from "../components/FreelanceList";
+import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -31,25 +31,27 @@ const Freelance = () => {
     );
   };
 
-  function filterByCategory(category) {
-    if (category === "All") {
-      setFilterList(loadedJobs);
-    } else {
-      const filterSuc = [];
-      const jobList = loadedJobs;
-      for (let i = 0; i < jobList.length; i++) {
-        for (let j = 0; j < jobList[i].categories.length; j++) {
-          if (category === jobList[i].categories[j]) {
-            const jobFilted = jobList[i];
-            filterSuc.push(jobFilted);
-          }
-          setFilterList(filterSuc);
-        }
-      }
+  function filterByCategory(category: String[]) {
+    const filterSuc = [];
+    const jobList = [];
+    loadedJobs.forEach(el => {
+      jobList.push({job:el,count: 0})
+    })
+    for (let i = 0; i < jobList.length; i++) {
+      category.forEach(el => {
+          if(jobList[i].job.categories.includes(el)){ jobList[i].count += 1}
+      })
     }
-  }
+    jobList.sort(function(a, b) {
+       if (a.count < b.count) return -1;
+       if (a.count > b.count) return 1;
+       return 0;
+    });
+    jobList.forEach(el => filterSuc.push(el.job))
+    setFilterList(filterSuc);
+}
 
-  const handleChange = (event) => {
+  const handleSearchChange = (event) => {
     let eventList = event.target.value; //ดึงค่าที่รับมาใส่ตัวแปร
     setSearchList(eventList);
     console.log("searchList: " + searchList);
@@ -73,6 +75,12 @@ const Freelance = () => {
       setFilterList(jobList); //ถ้าไม่มีก็ให้แสดงชุดข้อมูลทั้งหมดที่มี
     }
   };
+  // TODO
+  // 1. สร้างตัวแปร filter เป็น string[] เก็บในstate 
+  // -- 2. change Link to Button => onclick to new Function handleFilterChange
+  // 3. new function handleFilterChange => ถ้ามีอยู่ในarray pop ออก ถ้าไม่มี push เข้าไป แล้วเรียก filterByCategory(filter)
+  // 4. change filterByCategory เป็น notepad
+
 
   return (
     <React.Fragment>
@@ -82,31 +90,31 @@ const Freelance = () => {
             type="text" //ประเภทของการกรอก (ข้อความสั้น ๆ)
             placeholder="Search" //ตัวเทา ๆ ในช่องกรอก
             value={filterList.title} //แสดงค่าที่กรอกให้เห็น
-            onChange={handleChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
+            onChange={handleSearchChange} //ถ้ามีการเปลี่ยนแปลงก็ให้มันไปรันคำสั่งนั้น
           />
         </div>
         <div className="jobtype">
-          <Link to="" onClick={() => filterByCategory("Frontend")}>
+          <Button to="" onClick={() => filterByCategory("Frontend")}>
             <span id="frontendbutton">Front-end</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("Backend")}>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("Backend")}>
             <span id="backendbutton">Back-end</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("Network")}>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("Network")}>
             <span id="networkbutton">Network</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("Database")}>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("Database")}>
             <span id="dbbutton">Database</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("UX&UI")}>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("UX&UI")}>
             <span id="uibutton">UX & UI</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("Other")}>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("Other")}>
             <span id="otherbutton">Other</span>
-          </Link>
-          <Link to="" onClick={() => filterByCategory("All")}>
-            <span id="otherbutton">Reset</span>
-          </Link>
+          </Button>
+          <Button to="" onClick={() => filterByCategory("All")}>
+            <span id="otherbutton">All Job</span>
+          </Button>
         </div>
         <ErrorModal error={error} onClear={clearError} />
         {isLoading && (
