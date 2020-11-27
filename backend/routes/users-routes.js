@@ -3,7 +3,7 @@ const { check } = require("express-validator");
 
 const usersController = require("../controllers/users-controllers");
 const fileUpload = require("../middleware/file-upload");
-// const pdfUpload = require("../middleware/pdf-upload");
+const pdfUpload = require("../middleware/pdf-upload");
 
 const router = express.Router();
 
@@ -14,14 +14,13 @@ router.get("/application/:jid", usersController.getUserByApp);
 router.post(
   "/signup",
   fileUpload.single("image"),
-  fileUpload.single("resume"),
+  pdfUpload.single("resume"),
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
     check("password").isLength({ min: 6 }),
     // check("companyAddress").not().isEmpty(),
     check("telNo").not().isEmpty(),
-    check("resume").not().isEmpty(),
     // check("employer").not().isEmpty(),
     // check("dob").not().isEmpty(),
     // check("website").not().isEmpty(),
