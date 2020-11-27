@@ -55,7 +55,6 @@ const Input = (props) => {
       <input
         id={props.id}
         type={props.type}
-        accept="application/pdf"
         onChange={changeHandler}
         onBlur={touchHandler}
         value={inputState.value}

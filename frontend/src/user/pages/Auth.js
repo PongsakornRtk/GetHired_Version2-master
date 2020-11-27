@@ -6,6 +6,7 @@ import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
+import PDFUpload from "../../shared/components/FormElements/PDFUpload";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
@@ -109,7 +110,7 @@ const Auth = () => {
             isValid: false,
           },
           resume: {
-            value: "",
+            value: null,
             isValid: false,
           },
         },
@@ -287,12 +288,10 @@ const Auth = () => {
           )}
 
           {!isLoginMode && !isAddressable && (
-            <Input
+            <PDFUpload
               element="input"
               id="resume"
-              type="file"
               label="Your Resume"
-              validators={[VALIDATOR_REQUIRE()]}
               errorText="Please enter a resume"
               onInput={inputHandler}
             />
