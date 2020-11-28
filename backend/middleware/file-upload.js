@@ -5,6 +5,9 @@ const MIME_TYPE_MAP = {
   'image/png': 'png',
   'image/jpeg': 'jpeg',
   'image/jpg': 'jpg',
+  'resume/png': 'png',
+  'resume/jpeg': 'jpeg',
+  'resume/jpg': 'jpg',
 };
 
 const fileUpload = multer({

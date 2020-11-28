@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Button from "./Button";
 import "./ImageUpload.css";
 
-const ImageUpload = (props) => {
+const ResumeUpload = (props) => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
   const [isValid, setIsValid] = useState(false);
@@ -53,10 +53,10 @@ const ImageUpload = (props) => {
       <div className={`image-upload ${props.center && "center"}`}>
         <div className="image-upload__preview">
           {previewUrl && <img src={previewUrl} alt="Preview" />}
-          {!previewUrl && <p>Please pick a profile picture.</p>}
+          {!previewUrl && <p>Please pick a resume.</p>}
         </div>
         <Button type="button" onClick={pickImageHandler}>
-          PICK IMAGE
+          PICK RESUME
         </Button>
       </div>
       {!isValid && <p>{props.errorText}</p>}
@@ -65,4 +65,4 @@ const ImageUpload = (props) => {
   );
 };
 
-export default ImageUpload;
+export default ResumeUpload;
