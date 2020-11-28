@@ -1,4 +1,4 @@
-# GetHired_Version2-master
+# GetHired
 
 1. /cd frontend
 2. npm i
