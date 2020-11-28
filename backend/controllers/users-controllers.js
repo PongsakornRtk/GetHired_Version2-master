@@ -57,7 +57,6 @@ const signup = async (req, res, next) => {
     employer,
     dob,
     website,
-    resume,
   } = req.body;
 
   let existingUser;
@@ -100,7 +99,7 @@ const signup = async (req, res, next) => {
     companyAddress,
     website,
     dob,
-    resume,
+    resume: req.file.path,
     jobs: [],
   });
 
@@ -128,7 +127,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-
+  console.log(createdUser.id,createdUser.email,token);
   res
     .status(201)
     .json({ userId: createdUser.id, email: createdUser.email, token: token });

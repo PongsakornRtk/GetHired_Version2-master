@@ -44,30 +44,30 @@ const getJobById = async (req, res, next) => {
   res.json({ job: job.toObject({ getters: true }) });
 };
 
-// const getJobsByUserId = async (req, res, next) => {
-//   const userId = req.params.uid;
+const getJobsByUserId = async (req, res, next) => {
+  const userId = req.params.uid;
 
-//   try {
-//     jobs = await Job.find({ creator: userId });
-//   } catch (err) {
-//     const error = new HttpError(
-//       "Fetching jobs failed, please try again later.",
-//       500
-//     );
-//     return next(error);
-//   }
+  try {
+    jobs = await Job.find({ creator: userId });
+  } catch (err) {
+    const error = new HttpError(
+      "Fetching jobs failed, please try again later.",
+      500
+    );
+    return next(error);
+  }
 
-//   if (!jobs || jobs.length === 0) {
-//     return next(
-//       new HttpError("Could not find jobs for the provided user id.", 404)
-//     );
-//   }
+  if (!jobs || jobs.length === 0) {
+    return next(
+      new HttpError("Could not find jobs for the provided user id.", 404)
+    );
+  }
 
-//   res.json({
-//     jobs: jobs.map((jobs) => jobs.toObject({ getters: true })),
-//   });
-//   console.log(jobs);
-// };
+  res.json({
+    jobs: jobs.map((jobs) => jobs.toObject({ getters: true })),
+  });
+  console.log(jobs);
+};
 
 const createJobs = async (req, res, next) => {
   const errors = validationResult(req);
@@ -230,7 +230,7 @@ const deleteJob = async (req, res, next) => {
 };
 exports.getJobs = getJobs;
 exports.getJobById = getJobById;
-// exports.getJobsByUserId = getJobsByUserId;
+exports.getJobsByUserId = getJobsByUserId;
 exports.createdJob = createJobs;
 exports.updateJob = updateJob;
 exports.deleteJob = deleteJob;
