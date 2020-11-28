@@ -31,7 +31,9 @@ const Freelance = () => {
     );
   };
 
-  function filterByCategory(category: String[]) {
+  // const filterInterest =  [];
+
+  function filterByCategory(category, filterInterest) {
     const filterSuc = [];
     const jobList = [];
     loadedJobs.forEach(el => {
@@ -50,6 +52,16 @@ const Freelance = () => {
     jobList.forEach(el => filterSuc.push(el.job))
     setFilterList(filterSuc);
 }
+
+// function handleFilterChange(category) {
+// // กด = มี
+// // ไม่กด = ไม่มี
+// //ถ้า fe ตรงกับ filterList  
+// if(category ){
+
+// }
+
+// }
 
   const handleSearchChange = (event) => {
     let eventList = event.target.value; //ดึงค่าที่รับมาใส่ตัวแปร
@@ -96,7 +108,9 @@ const Freelance = () => {
           </form>
         </div>
         <div className="jobtype">
-          <Button to="" onClick={() => filterByCategory("Frontend")}>
+          <button type="button" class="btn btn-outline-primary">Primary</button>
+          
+          <Button class="up" to="" onClick={() => filterByCategory("Frontend")}>
             <span id="frontendbutton">Front-end</span>
           </Button>
           <Button to="" onClick={() => filterByCategory("Backend")}>
