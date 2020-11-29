@@ -107,7 +107,7 @@ const Freelance = () => {
             <button id="otherbutton" onClick={() => filterByCategory("Other")}>
               <span>Other</span>
             </button>
-            <button id="otherbutton" onClick={() => filterByCategory("All")}>
+            <button id="allbutton" onClick={() => filterByCategory("All")}>
               <span>All Job</span>
             </button>
             <div className="searchbutton">

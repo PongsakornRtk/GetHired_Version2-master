@@ -1,6 +1,5 @@
 /*Categories button*/
 .jobtype {
-  text-decoration: none;
   width: 100%;
   text-align: center;
   height: 100%;
@@ -16,8 +15,8 @@
 #frontendbutton {
   color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+  /* padding: 2vw; */
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
   background: rgba(37, 48, 57, 0.8);
@@ -41,8 +40,11 @@
 #backendbutton {
   color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+  
+  padding-left: 7px;
+  padding-right: 7px;
+
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
   background: rgba(37, 48, 57, 0.8);
@@ -67,11 +69,18 @@
 #networkbutton {
   color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+
+  
+  padding-left: 10.5;
+  padding-right: 11px;
+  padding-left: 10.5;
+  padding-left: 11px;
+
+  /* padding: 2vw; */
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
-  background: rgba(37, 48, 57, 0.8);
+  background: #253039;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/nw.png);
   background-size: 100%;
@@ -81,7 +90,7 @@
 
 #networkbutton:hover, #networkbutton:active {
   color: #253039;
-  background: rgba(255, 184, 0, 0.8);
+  background: #ffb800;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/nwh.png);
   background-size: 100%;
@@ -90,10 +99,14 @@
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 #dbbutton {
-  color: #ffffff;
+ color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+  
+  padding-right: 6.5px;
+  padding-left: 6.5px;
+
+  /* padding: 2vw; */
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
   background: rgba(37, 48, 57, 0.8);
@@ -117,8 +130,12 @@
 #uibutton {
   color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+  
+  padding-left: 11px;
+  padding-right: 11px;
+
+  /* padding: 2vw; */
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
   background: #253039;
@@ -143,8 +160,12 @@
 #otherbutton {
   color: #ffffff;
   height: 70px;
-  padding: 2vw;
-  width: 120px;
+  
+  padding-left: 18.5px;
+  padding-right: 18.5px;
+
+  /* padding: 2vw; */
+  /* width: 20vh; */
   border-radius: 1em;
   border: 0px;
   background: #253039;
@@ -156,6 +177,38 @@
 }
 
 #otherbutton:hover, #otherbutton:active {
+  color: #253039;
+  background: #ffb800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/oth.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#allbutton {
+  color: #ffffff;
+  height: 70px;
+  
+  
+  padding-left: 15px;
+  padding-right: 15px;
+
+
+  /* padding: 2vw; */
+  /* width: 20vh; */
+  border-radius: 1em;
+  border: 0px;
+  background: #253039;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/ot.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#allbutton:hover, #otherbutton:active {
   color: #253039;
   background: #ffb800;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
