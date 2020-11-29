@@ -10,6 +10,8 @@ const User = require("../models/user");
 const Job = require("../models/job");
 const { request } = require("http");
 
+
+
 const getUserFromToken = async (req) => {
   try {
     const token = req.headers.authorization.split(" ")[1];

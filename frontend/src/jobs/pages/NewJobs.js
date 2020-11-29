@@ -173,7 +173,7 @@ const NewJob = () => {
           errorText="Please enter a valid expiration date."
           onInput={inputHandler}
         />
-        <Input
+        {/* <Input
           id="categories"
           element="input"
           type="text"
@@ -181,7 +181,7 @@ const NewJob = () => {
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid categories."
           onInput={inputHandler}
-        />
+        /> */}
         <Input
           id="companyName"
           element="input"

@@ -6,7 +6,8 @@ import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
-import PDFUpload from "../../shared/components/FormElements/PDFUpload";
+import ResumeUpload from "../../shared/components/FormElements/ResumeUpload";
+// import PDFUpload from "../../shared/components/FormElements/PDFUpload";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
@@ -242,7 +243,7 @@ const Auth = () => {
               center
               id="image"
               onInput={inputHandler}
-              errorText="Please provide an image."
+              errorText="Please provide a profile picture."
             />
           )}
           <Input
@@ -288,13 +289,12 @@ const Auth = () => {
           )}
 
           {!isLoginMode && !isAddressable && (
-            <PDFUpload
-              element="input"
-              id="resume"
-              label="Your Resume"
-              errorText="Please enter a resume"
-              onInput={inputHandler}
-            />
+           <ResumeUpload
+           center
+           id="resume"
+           onInput={inputHandler}
+           errorText="Please provide an resume."
+         />
           )}
 
           {isAddressable && !isLoginMode && (

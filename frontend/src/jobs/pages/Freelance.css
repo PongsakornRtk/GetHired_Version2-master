@@ -11,6 +11,10 @@
   justify-content: center;
   margin: 3vw 0vw 5vw 0vw;
 }
+
+.jobtype .up{
+  width: 100px;
+}
 /*
 #frontendbutton {
   color: #ffffff;

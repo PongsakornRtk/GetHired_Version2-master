@@ -3,7 +3,7 @@ const { check } = require("express-validator");
 
 const usersController = require("../controllers/users-controllers");
 const fileUpload = require("../middleware/file-upload");
-const pdfUpload = require("../middleware/pdf-upload");
+// const pdfUpload = require("../middleware/pdf-upload");
 
 const router = express.Router();
 
@@ -17,18 +17,22 @@ router.post(
     [
       { 
         name: 'image', 
-        maxCount: 1 
-      }
-    ]
-  ),
-  pdfUpload.fields(
-    [
-      { 
+        maxCount: 1
+      },
+      {
         name: 'resume', 
-        maxCount: 1 
+        maxCount: 1
       }
     ]
   ),
+  // fileUpload.fields
+  //   [
+  //     { 
+  //       name: 'resume', 
+  //       maxCount: 1 
+  //     }
+  //   ]
+  // ),
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),

@@ -31,37 +31,27 @@ const Freelance = () => {
     );
   };
 
-  // const filterInterest =  [];
+ 
 
-  function filterByCategory(category, filterInterest) {
-    const filterSuc = [];
-    const jobList = [];
-    loadedJobs.forEach(el => {
-      jobList.push({job:el,count: 0})
-    })
-    for (let i = 0; i < jobList.length; i++) {
-      category.forEach(el => {
-          if(jobList[i].job.categories.includes(el)){ jobList[i].count += 1}
-      })
+  function filterByCategory(category) {
+    if (category === "All") {
+      setFilterList(loadedJobs);
+    } else {
+      const filterSuc = [];
+      const jobList = loadedJobs;
+      for (let i = 0; i < jobList.length; i++) {
+        for (let j = 0; j < jobList[i].categories.length; j++) {
+          if (category === jobList[i].categories[j]) {
+            const jobFilted = jobList[i];
+            filterSuc.push(jobFilted);
+          }
+          setFilterList(filterSuc);
+        }
+      }
     }
-    jobList.sort(function(a, b) {
-       if (a.count < b.count) return -1;
-       if (a.count > b.count) return 1;
-       return 0;
-    });
-    jobList.forEach(el => filterSuc.push(el.job))
-    setFilterList(filterSuc);
-}
+  }
 
-// function handleFilterChange(category) {
-// // กด = มี
-// // ไม่กด = ไม่มี
-// //ถ้า fe ตรงกับ filterList  
-// if(category ){
 
-// }
-
-// }
 
   const handleSearchChange = (event) => {
     let eventList = event.target.value; //ดึงค่าที่รับมาใส่ตัวแปร
@@ -110,7 +100,7 @@ const Freelance = () => {
         <div className="jobtype">
           <button type="button" class="btn btn-outline-primary">Primary</button>
           
-          <Button class="up" to="" onClick={() => filterByCategory("Frontend")}>
+          <Button className="up" to="" onClick={() => filterByCategory("Frontend")}>
             <span id="frontendbutton">Front-end</span>
           </Button>
           <Button to="" onClick={() => filterByCategory("Backend")}>
