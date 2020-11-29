@@ -231,6 +231,8 @@
   border-radius: 1em;
   border: 15px solid white;
   padding: 5px;
+  margin-left: 40px;
+
 }
 
 .searchbutton input{
