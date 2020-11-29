@@ -6,6 +6,6 @@
 4. npm start
 
 1. /cd backend
-2. npm 
+2. npm i
 3. wait for the installation to complete
 4. npm start
