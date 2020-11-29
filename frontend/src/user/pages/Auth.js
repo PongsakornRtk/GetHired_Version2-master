@@ -6,7 +6,7 @@ import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ImageUpload from "../../shared/components/FormElements/ImageUpload";
-import ResumeUpload from "../../shared/components/FormElements/ResumeUpload";
+// import ResumeUpload from "../../shared/components/FormElements/ResumeUpload";
 // import PDFUpload from "../../shared/components/FormElements/PDFUpload";
 import {
   VALIDATOR_EMAIL,
@@ -51,7 +51,7 @@ const Auth = () => {
           formState.inputs.telNo.value &&
           formState.inputs.website &&
           formState.inputs.companyAddress &&
-          formState.inputs.resume &&
+          // formState.inputs.resume &&
           formState.inputs.dob &&
           formState.inputs.employer !== ""
         ) {
@@ -110,10 +110,10 @@ const Auth = () => {
             value: "",
             isValid: false,
           },
-          resume: {
-            value: null,
-            isValid: false,
-          },
+          // resume: {
+          //   value: "",
+          //   isValid: false,
+          // },
         },
         false
       );
@@ -152,7 +152,7 @@ const Auth = () => {
         formData.append("password", formState.inputs.password.value);
         formData.append("image", formState.inputs.image.value);
         formData.append("website", formState.inputs.website.value);
-        formData.append("resume", formState.inputs.resume.value);
+        // formData.append("resume", formState.inputs.resume.value);
         formData.append("dob", formState.inputs.dob.value);
         formData.append(
           "companyAddress",
@@ -288,14 +288,14 @@ const Auth = () => {
             />
           )}
 
-          {!isLoginMode && !isAddressable && (
+          {/* {!isLoginMode && !isAddressable && (
            <ResumeUpload
            center
            id="resume"
            onInput={inputHandler}
            errorText="Please provide an resume."
          />
-          )}
+          )} */}
 
           {isAddressable && !isLoginMode && (
             <Input

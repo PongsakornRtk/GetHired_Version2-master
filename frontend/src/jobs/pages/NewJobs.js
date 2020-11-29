@@ -82,10 +82,10 @@ const NewJob = () => {
     } catch (err) {}
   };
 
-  const mystyle = {
-    fontWeight: "bold",
-    marginBottom: "0.5rem",
-  };
+  // const mystyle = {
+  //   fontWeight: "bold",
+  //   marginBottom: "0.5rem",
+  // };
 
   return (
     <React.Fragment>
@@ -110,7 +110,7 @@ const NewJob = () => {
           errorText="Please enter a valid description (at least 5 characters)."
           onInput={inputHandler}
         />
-        <div style={mystyle}>Categories</div>
+        {/* <div style={mystyle}>Categories</div>
         <div>
           <input
             type="checkbox"
@@ -149,7 +149,7 @@ const NewJob = () => {
           <br />
           <input type="checkbox" id="Other" name="categories" value="other" />
           <label for="other">Other</label>
-        </div>
+        </div> */}
         <ImageUpload
           id="image"
           onInput={inputHandler}
@@ -173,15 +173,16 @@ const NewJob = () => {
           errorText="Please enter a valid expiration date."
           onInput={inputHandler}
         />
-        {/* <Input
+        <Input
           id="categories"
           element="input"
           type="text"
-          label="Categories"
+          label="Job Categories"
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid categories."
           onInput={inputHandler}
-        /> */}
+          placeholder="Format: Frontend, Backend, Network, Database, UX&UI or Other"       
+           />
         <Input
           id="companyName"
           element="input"

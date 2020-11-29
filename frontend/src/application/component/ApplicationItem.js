@@ -18,9 +18,9 @@ const ApplicationItem = (props) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
 
-  const showApplyWarningHandler = () => {
-    setShowConfirmModal(true);
-  };
+  // const showApplyWarningHandler = () => {
+  //   setShowConfirmModal(true);
+  // };
 
   const showResume = () => {
     setShowResumeModal(true);
@@ -106,12 +106,12 @@ const ApplicationItem = (props) => {
           <div className="app-item__actions">
             {auth.userId && <Button onClick={showResume}>View Resume</Button>}
           </div>
-          <div className="app-item__actions">
+          {/* <div className="app-item__actions">
             {auth.userId && (
               <Button onClick={showApplyWarningHandler}>APPLY</Button>
             )}
             {auth.userId && <Button>REJECT</Button>}
-          </div>
+          </div> */}
         </Card>
       </li>
     </React.Fragment>

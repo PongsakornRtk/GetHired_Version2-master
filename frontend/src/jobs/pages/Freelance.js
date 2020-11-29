@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import FreelanceList from "../components/FreelanceList";
-import Button from "../../shared/components/FormElements/Button";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import "./Freelance.css";
+import _ from "lodash";
 const Freelance = () => {
   const [loadedJobs, setLoadedJobs] = useState();
   const [filterList, setFilterList] = useState([]);
@@ -31,8 +31,6 @@ const Freelance = () => {
     );
   };
 
- 
-
   function filterByCategory(category) {
     if (category === "All") {
       setFilterList(loadedJobs);
@@ -44,14 +42,13 @@ const Freelance = () => {
           if (category === jobList[i].categories[j]) {
             const jobFilted = jobList[i];
             filterSuc.push(jobFilted);
+            console.log(filterSuc);
           }
-          setFilterList(filterSuc);
         }
       }
+      setFilterList(_.union(filterSuc));
     }
   }
-
-
 
   const handleSearchChange = (event) => {
     let eventList = event.target.value; //ดึงค่าที่รับมาใส่ตัวแปร
@@ -77,50 +74,60 @@ const Freelance = () => {
       setFilterList(jobList); //ถ้าไม่มีก็ให้แสดงชุดข้อมูลทั้งหมดที่มี
     }
   };
-  // TODO
-  // 1. สร้างตัวแปร filter เป็น string[] เก็บในstate 
-  // -- 2. change Link to Button => onclick to new Function handleFilterChange
-  // 3. new function handleFilterChange => ถ้ามีอยู่ในarray pop ออก ถ้าไม่มี push เข้าไป แล้วเรียก filterByCategory(filter)
-  // 4. change filterByCategory เป็น notepad
-
 
   return (
     <React.Fragment>
       <div>
-      <div className="searchbutton">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
-          <form className="searchbuttoform" action="">
-            <input  type="search"
-                    placeholder="Search"
-                    value={filterList.title} //แสดงค่าที่กรอกให้เห็น
-                    onChange={handleSearchChange}/>
-            <i class="fa fa-search"></i>
-          </form>
-        </div>
-        <div className="jobtype">
-          <button type="button" class="btn btn-outline-primary">Primary</button>
-          
-          <Button className="up" to="" onClick={() => filterByCategory("Frontend")}>
-            <span id="frontendbutton">Front-end</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("Backend")}>
-            <span id="backendbutton">Back-end</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("Network")}>
-            <span id="networkbutton">Network</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("Database")}>
-            <span id="dbbutton">Database</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("UX&UI")}>
-            <span id="uibutton">UX & UI</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("Other")}>
-            <span id="otherbutton">Other</span>
-          </Button>
-          <Button to="" onClick={() => filterByCategory("All")}>
-            <span id="otherbutton">All Job</span>
-          </Button>
+        <div>
+          <div className="jobtype">
+            <button
+              id="frontendbutton"
+              onClick={() => filterByCategory("Frontend")}
+            >
+              <span>Front-end</span>
+            </button>
+            <button
+              id="backendbutton"
+              onClick={() => filterByCategory("Backend")}
+            >
+              <span>Back-end</span>
+            </button>
+            <button
+              id="networkbutton"
+              onClick={() => filterByCategory("Network")}
+            >
+              <span>Network</span>
+            </button>
+            <button id="dbbutton" onClick={() => filterByCategory("Database")}>
+              <span>Database</span>
+            </button>
+            <button id="uibutton" onClick={() => filterByCategory("UX&UI")}>
+              <span>UX & UI</span>
+            </button>
+            <button id="otherbutton" onClick={() => filterByCategory("Other")}>
+              <span>Other</span>
+            </button>
+            <button id="otherbutton" onClick={() => filterByCategory("All")}>
+              <span>All Job</span>
+            </button>
+            <div className="searchbutton">
+              <link
+                rel="stylesheet"
+                href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+                integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+                crossOrigin="anonymous"
+              />
+              <form className="searchbuttonform" action="">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  value={filterList.value} //แสดงค่าที่กรอกให้เห็น
+                  onChange={handleSearchChange}
+                />
+                <i className="fa fa-search"></i>
+              </form>
+            </div>
+          </div>
         </div>
         <ErrorModal error={error} onClear={clearError} />
         {isLoading && (

@@ -1,3 +1,4 @@
+/*Categories button*/
 .jobtype {
   text-decoration: none;
   width: 100%;
@@ -7,21 +8,18 @@
   flex-direction: row;
   align-content: center;
   flex-wrap: wrap;
-  grid-gap: 40px;
+  grid-gap: 20px;
   justify-content: center;
-  margin: 3vw 0vw 5vw 0vw;
+  margin: 3vw 0vw 2vw 0vw;
 }
 
-.jobtype .up{
-  width: 100px;
-}
-/*
 #frontendbutton {
   color: #ffffff;
-  height: 100%;
+  height: 70px;
   padding: 2vw;
-  width: 100%;
+  width: 120px;
   border-radius: 1em;
+  border: 0px;
   background: rgba(37, 48, 57, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/fn.png);
@@ -30,10 +28,9 @@
   background-position: 50% 50%;
 }
 
-#frontendbutton:hover {
+#frontendbutton:hover, #frontendbutton:active {
   color: #253039;
-  border-radius: 1em;
-  background: rgba(37, 48, 57, 0.8);
+  background: rgba(255, 184, 0, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/fnh.png);
   background-size: 100%;
@@ -41,13 +38,13 @@
   background-position: 50% 50%;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 #backendbutton {
   color: #ffffff;
-  height: 100%;
+  height: 70px;
   padding: 2vw;
-  width: 100%;
+  width: 120px;
   border-radius: 1em;
+  border: 0px;
   background: rgba(37, 48, 57, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/bn.png);
@@ -56,11 +53,8 @@
   background-position: 50% 50%;
 }
 
-#backendbutton:hover {
+#backendbutton:hover, #backendbutton:active {
   color: #253039;
-  width: 16.6%;
-  padding: 2vw;
-  border-radius: 1em;
   background: rgba(255, 184, 0, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/bnh.png);
@@ -72,10 +66,11 @@
 
 #networkbutton {
   color: #ffffff;
-  height: 100%;
+  height: 70px;
   padding: 2vw;
-  width: 100%;
+  width: 120px;
   border-radius: 1em;
+  border: 0px;
   background: rgba(37, 48, 57, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/nw.png);
@@ -84,11 +79,8 @@
   background-position: 50% 50%;
 }
 
-#networkbutton:hover {
+#networkbutton:hover, #networkbutton:active {
   color: #253039;
-  width: 16.6%;
-  padding: 2vw;
-  border-radius: 1em;
   background: rgba(255, 184, 0, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/nwh.png);
@@ -97,69 +89,13 @@
   background-position: 50% 50%;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-#uibutton {
-  color: #ffffff;
-  height: 100%;
-  padding: 2vw;
-  width: 100%;
-  border-radius: 1em;
-  background: rgba(37, 48, 57, 0.8);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-image: url(../../pictures/Dashboard/icon/ui.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-#uibutton:hover {
-  color: #253039;
-  width: 16.6%;
-  padding: 2vw;
-  border-radius: 1em;
-  background: rgba(255, 184, 0, 0.8);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-image: url(../../pictures/Dashboard/icon/uih.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-#otherbutton {
-  color: #ffffff;
-  height: 100%;
-  padding: 2vw;
-  width: 100%;
-  border-radius: 1em;
-  background: rgba(37, 48, 57, 0.8);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-image: url(../../pictures/Dashboard/icon/ot.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-#otherbutton:hover {
-  color: #253039;
-  width: 16.6%;
-  padding: 2vw;
-  border-radius: 1em;
-  background: rgba(255, 184, 0, 0.8);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background-image: url(../../pictures/Dashboard/icon/oth.png);
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 #dbbutton {
   color: #ffffff;
-  height: 100%;
+  height: 70px;
   padding: 2vw;
-  width: 100%;
+  width: 120px;
   border-radius: 1em;
+  border: 0px;
   background: rgba(37, 48, 57, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/db.png);
@@ -168,11 +104,8 @@
   background-position: 50% 50%;
 }
 
-#dbbutton:hover {
+#dbbutton:hover, #dbbutton:active {
   color: #253039;
-  width: 16.6%;
-  padding: 2vw;
-  border-radius: 1em;
   background: rgba(255, 184, 0, 0.8);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-image: url(../../pictures/Dashboard/icon/dbh.png);
@@ -181,24 +114,74 @@
   background-position: 50% 50%;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-*/
+#uibutton {
+  color: #ffffff;
+  height: 70px;
+  padding: 2vw;
+  width: 120px;
+  border-radius: 1em;
+  border: 0px;
+  background: #253039;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/ui.png);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#uibutton:hover, #uibutton:active {
+  color: #253039;
+  background: #ffb800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/uih.png);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#otherbutton {
+  color: #ffffff;
+  height: 70px;
+  padding: 2vw;
+  width: 120px;
+  border-radius: 1em;
+  border: 0px;
+  background: #253039;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/ot.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+#otherbutton:hover, #otherbutton:active {
+  color: #253039;
+  background: #ffb800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-image: url(../../pictures/Dashboard/icon/oth.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/*Search button*/
 .searchbutton form{
   position: relative;
-  
   left: 95%;
-  transform: translate(-100%,-0%);
+  transform: translate(-100%,0%);
   transition: all 1s;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background: white;
   box-sizing: border-box;
-  border-radius: 25px;
-  border: 4px solid white;
+  border-radius: 1em;
+  border: 15px solid white;
   padding: 5px;
 }
 
 .searchbutton input{
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;;
@@ -237,6 +220,6 @@
 }
 
 .searchbutton form:hover .fa{
-  background: #ffb800;
-  color:#253039;
+  background: #253039;
+  color:white;
 }

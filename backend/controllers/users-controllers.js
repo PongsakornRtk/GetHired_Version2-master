@@ -10,8 +10,6 @@ const User = require("../models/user");
 const Job = require("../models/job");
 const { request } = require("http");
 
-
-
 const getUserFromToken = async (req) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
@@ -59,6 +57,7 @@ const signup = async (req, res, next) => {
     employer,
     dob,
     website,
+    resume,
   } = req.body;
 
   let existingUser;
@@ -99,9 +98,9 @@ const signup = async (req, res, next) => {
     employer,
     telNo,
     companyAddress,
+    // resume,
     website,
     dob,
-    resume: req.file.path,
     jobs: [],
   });
 
@@ -129,7 +128,7 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-  console.log(createdUser.id,createdUser.email,token);
+  console.log(createdUser.id, createdUser.email, token);
   res
     .status(201)
     .json({ userId: createdUser.id, email: createdUser.email, token: token });
@@ -211,11 +210,10 @@ const applyJob = async (req, res, next) => {
     return next(new HttpError("Invalidata.", 404));
   }
   const jobId = req.params.jobId;
-  console.log(userId, "sda");
+
   try {
-    console.log(userId, "sdadasd");
     job = await Job.findById(jobId);
-    console.log("dsadas");
+
     user = await User.findById(userId);
     const sess = await mongoose.startSession();
     sess.startTransaction();

@@ -13,26 +13,16 @@ router.get("/application/:jid", usersController.getUserByApp);
 
 router.post(
   "/signup",
-  fileUpload.fields(
-    [
-      { 
-        name: 'image', 
-        maxCount: 1
-      },
-      {
-        name: 'resume', 
-        maxCount: 1
-      }
-    ]
-  ),
-  // fileUpload.fields
+  // fileUpload.fields(
   //   [
-  //     { 
-  //       name: 'resume', 
-  //       maxCount: 1 
+  //     {
+  //       name: 'image',
+  //       maxCount: 1
   //     }
   //   ]
   // ),
+  fileUpload.single("image"),
+
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
