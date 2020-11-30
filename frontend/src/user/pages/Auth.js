@@ -188,6 +188,7 @@ const Auth = () => {
         },
         true
       );
+      setIsAddressable((prevMode) => !prevMode);
     } else {
       console.log("Switch to employer");
       console.log(formState.inputs);
