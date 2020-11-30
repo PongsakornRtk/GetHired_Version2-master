@@ -110,6 +110,10 @@ const Auth = () => {
             value: "",
             isValid: false,
           },
+          employer: {
+            value: "",
+            isValid: false,
+          },
           // resume: {
           //   value: "",
           //   isValid: false,
@@ -117,8 +121,7 @@ const Auth = () => {
         },
         false
       );
-    }
-    setIsLoginMode((prevMode) => !prevMode);
+    } 
   };
 
   const authSubmitHandler = async (event) => {
@@ -188,7 +191,6 @@ const Auth = () => {
         },
         true
       );
-      setIsAddressable((prevMode) => !prevMode);
     } else {
       console.log("Switch to employer");
       console.log(formState.inputs);
