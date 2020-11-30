@@ -128,7 +128,7 @@ const Auth = () => {
       console.log("login");
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/login",
+          "https://gethired-api.herokuapp.com/api/users/login",
           "POST",
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -162,7 +162,7 @@ const Auth = () => {
         formData.append("employer", isAddressable);
 
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users/signup",
+          "https://gethired-api.herokuapp.com/api/users/signup",
           "POST",
           formData
         );

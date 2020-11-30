@@ -27,7 +27,7 @@ const JobItem = (props) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/jobs/${props.id}`,
+        `https://gethired-api.herokuapp.com/api/jobs/${props.id}`,
         "DELETE",
         null,
         {
@@ -67,7 +67,7 @@ const JobItem = (props) => {
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="job-item__image">
             <img
-              src={`http://localhost:5000/${props.image}`}
+              src={`https://gethired-api.herokuapp.com/${props.image}`}
               alt={props.title}
             />
           </div>

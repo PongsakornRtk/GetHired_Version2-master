@@ -15,7 +15,7 @@ const Application = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/users/application/${jobId}`
+          `https://gethired-api.herokuapp.com/api/users/application/${jobId}`
         );
         setLoadedUsers(responseData.usersList);
       } catch (err) {}

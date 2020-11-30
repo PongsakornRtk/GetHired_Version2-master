@@ -52,7 +52,7 @@ const UpdateJob = () => {
     const fetchJob = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/jobs/${jobId}`
+          `https://gethired-api.herokuapp.com/api/jobs/${jobId}`
         );
         setLoadedJob(responseData.job);
         setFormData(
@@ -89,7 +89,7 @@ const UpdateJob = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        `http://localhost:5000/api/jobs/${jobId}`,
+        `https://gethired-api.herokuapp.com/api/jobs/${jobId}`,
         'PATCH',
         JSON.stringify({
           title: formState.inputs.title.value,

@@ -16,7 +16,7 @@ const Freelance = () => {
     const fetchJobs = async () => {
       try {
         const responseData = await sendRequest(
-          `http://localhost:5000/api/jobs`
+          `https://gethired-api.herokuapp.com/api/jobs`
         );
         setLoadedJobs(responseData.jobs);
         setFilterList(responseData.jobs);

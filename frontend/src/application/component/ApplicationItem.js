@@ -38,7 +38,7 @@ const ApplicationItem = (props) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `http://localhost:5000/api/users/apply/${props.id}`,
+        `https://gethired-api.herokuapp.com/api/users/apply/${props.id}`,
         "POST",
         null,
         {
@@ -94,7 +94,7 @@ const ApplicationItem = (props) => {
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="app-item__image">
             <Avatar
-              image={`http://localhost:5000/${props.image}`}
+              image={`https://gethired-api.herokuapp.com/${props.image}`}
               alt={props.name}
             />
           </div>

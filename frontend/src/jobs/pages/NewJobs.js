@@ -75,7 +75,7 @@ const NewJob = () => {
       formData.append("wage", formState.inputs.wage.value);
       formData.append("expDate", formState.inputs.expDate.value);
 
-      await sendRequest("http://localhost:5000/api/jobs", "POST", formData, {
+      await sendRequest("https://gethired-api.herokuapp.com/api/jobs", "POST", formData, {
         Authorization: "Bearer " + auth.token,
       });
       history.push("/");
