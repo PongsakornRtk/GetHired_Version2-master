@@ -110,10 +110,6 @@ const Auth = () => {
             value: "",
             isValid: false,
           },
-          employer: {
-            value: "",
-            isValid: false,
-          },
           // resume: {
           //   value: "",
           //   isValid: false,
