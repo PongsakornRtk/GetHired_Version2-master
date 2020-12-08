@@ -62,6 +62,7 @@ const Freelance = () => {
         (
           item //นำชุดข้อมูลที่มีอยู่ มากรอง แล้วไปแทนค่า
         ) =>
+          
           item.title.toLowerCase().includes(eventList.toLowerCase()) ||
           item.description.toLowerCase().includes(eventList.toLowerCase()) ||
           item.companyName.toLowerCase().includes(eventList.toLowerCase()) ||

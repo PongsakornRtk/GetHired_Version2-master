@@ -63,10 +63,7 @@ const NewJob = () => {
     //เอา id ของ checkbox มารวมกันในตัวแปรเดียวกันก่อน แล้วไปแทนค่า categories
     try {
       const formData = new FormData();
-      formState.inputs.formData.append(
-        "companyName",
-        formState.inputs.companyName.value
-      );
+      formData.append("companyName", formState.inputs.companyName.value);
       formData.append("companyAddress", formState.inputs.companyAddress.value);
       formData.append("categories", formState.inputs.categories.value);
       formData.append("title", formState.inputs.title.value);
@@ -75,11 +72,18 @@ const NewJob = () => {
       formData.append("wage", formState.inputs.wage.value);
       formData.append("expDate", formState.inputs.expDate.value);
 
-      await sendRequest("https://gethired-api.herokuapp.com/api/jobs", "POST", formData, {
-        Authorization: "Bearer " + auth.token,
-      });
+      await sendRequest(
+        "https://gethired-api.herokuapp.com/api/jobs",
+        "POST",
+        formData,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       history.push("/");
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // const mystyle = {
@@ -181,8 +185,8 @@ const NewJob = () => {
           validators={[VALIDATOR_REQUIRE()]}
           errorText="Please enter a valid categories."
           onInput={inputHandler}
-          placeholder="Format: Frontend, Backend, Network, Database, UX&UI or Other"       
-           />
+          placeholder="Format: Frontend, Backend, Network, Database, UX&UI or Other"
+        />
         <Input
           id="companyName"
           element="input"

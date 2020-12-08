@@ -80,7 +80,10 @@ const Auth = () => {
           image: undefined,
         },
         true
+
+        
       );
+      setIsLoginMode(true);
     } else {
       console.log("Switch to register");
       setFormData(
@@ -117,7 +120,8 @@ const Auth = () => {
         },
         false
       );
-    } 
+      setIsLoginMode(false);
+    }
   };
 
   const authSubmitHandler = async (event) => {
