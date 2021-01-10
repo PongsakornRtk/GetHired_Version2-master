@@ -55,7 +55,7 @@ mongoose
     { useUnifiedTopology: true }
   )
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT || gethired-api.herokuapp.com);
   })
   .catch((err) => {
     console.log(err);
